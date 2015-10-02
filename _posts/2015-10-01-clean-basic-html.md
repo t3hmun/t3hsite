@@ -4,7 +4,11 @@ title: "Part 2: Clean Basic HTML"
 description: 
 ---
 
-_This is a primarily a log-write-up of what I did, but I've attempted to write it like a tutorial so that others may find it useful._
+TODO:
+
+ * Title
+ * Description
+ * Date
 
 ## Strip to Minimal HTML
 

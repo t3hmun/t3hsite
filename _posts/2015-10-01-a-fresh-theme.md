@@ -11,10 +11,11 @@ This is documentation of my attempt to make a Jekyll blog-site from scratch, del
 
 The primary purpose of this documentation is to act as a lab book, solidify everything I learn and act as a reference for when I forget. However I've added extra details so that it may server as a tutorial for others who would like to learn in the same comprehensive manner.
 
-I am not convinced by the 'resposive design' fad, however I will be creating a website that perfectly adapts to any device, screen or window size.
+I am not convinced by the 'responsive design' fad, however I will be creating a website that perfectly adapts to any device, screen or window size.
 Blog sites have no need to be as complicated as they are.
 For me utility is far more important than aesthetics.
 Besides aesthetics tends to be just looking like everybody else.
+
 
 ## Why?
 
@@ -22,12 +23,6 @@ I have tried modifying the themes made by others but it has never been a satisfy
 Most of the CSS/SASS that I have encountered has been no fun to modify, it's impossible to know what the original designer was thinking.
 Before long it becomes a impenetrable mess with more quirks than Internet Explorer.
 On top of that it simply never feels like my own design, the original template is always echoing.
-
-
-### Why not use Boilerplate?
-
-One cannot reliably customise what they do not understand.
-Besides I'm not trying to make a boiler.
 
 
 ## Why Jekyll?

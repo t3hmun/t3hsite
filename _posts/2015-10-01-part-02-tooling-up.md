@@ -5,6 +5,16 @@ date: 2015-10-01 02:00:00
 description:
 ---
 
+TODO:
+
+ * Mention how Jekyll works - the inner toolchain.
+     - Markdown
+     - Liquid
+     - SASS
+     - build
+     - serve
+ * Description
+
 ## Tooling Up
 
 _This is a Windows 7 installation, but only the Ruby installation is OS specific._
