@@ -1,28 +1,37 @@
 ---
 layout: post
-title: "Part 2: Tooling Up"
+title: "Part 3: Laying a CSS and SASS Foundation from Scratch"
 date: 2015-10-01 03:00:00
-description:
+description: Removing the default CSS for a Jekyll site and laying a nice SASS foundation for building on.
 ---
-
-TODO:
-
- * Cruft from config file
- * Ultra short intro SASS and CSS
- * Description
-
 
 ## Creating a CSS base
 
-The default Jekyll blog site already has a load of CSS; it has a formatted layout.
-In order to start from scratch some deleting is in order.
+The default Jekyll blog site already has a load of CSS; it already has a formatted layout.
+This is neither wanted or needed.
 
 Delete all the files in the `/_sass/` folder.
+The `/_sass/` folder contains CSS files that are combined using SASS to make up a final CSS file.
+
+> __SASS__
+> 
+> SASS is a language/tool for generating CSS files.
+> CSS usually get ridiculously overcomplicated as a website grows.
+> SASS adds variables and allows combination multiple files and more.
+> 
 
 The implementation of CSS and HTML is not consistent across web browsers.
 In order to create a consistent basic appearance download [normalize.css](https://github.com/necolas/normalize.css/). Rename it to `_normalize.scss` and put it in the `/_sass/` folder.
 
-Next create a basic syntax highlighting CSS file (if wanted).
+> __normalize.css__
+>
+> HTML is not an exact standard, it was slowly built up over time. 
+> As a result many tags appear and behave differently in each browser.
+> normalize.css is a project to maintain a CSS file that creates a consistent look and behaviour across browsers.
+
+While it would be nice to fully understand the contents of normalize.css, doing so would take too long. A more pragmatic approach is to investigate the effects on a single element whenever new CSS is applied to it.
+
+Next generate a basic syntax highlighting CSS file (if wanted). This is done using the rougify command, which is a part of the Rouge gem.
 
 ```bash
 cd _sass
@@ -47,10 +56,11 @@ Finally modify `/css/main.scss`, remove all the cruft and reference the new scss
 ```
 
 Wonderful, now the CSS is utterly basic but still consistent.
-Unfortunately the page now looks ridiculous thanks to some in-line SVG images.
+Unfortunately the page now looks ridiculous thanks to some images embedded in the header and footer.
 
 Delete the contents of `/includes/header.html` and `/includes/footer.html`.
 
+Run `jekyll serve` in the project folder using the command line, then view it from `localhost:4000` in a browser.
 Finally a simple, minimal blog-site with a default-style appearance.
 
 
@@ -58,9 +68,12 @@ Finally a simple, minimal blog-site with a default-style appearance.
 
 The `_config.yml` file is the basic config for the site. Most of it should be self-explanatory.
 
-Some extra build options are useful to modify the behaviour of the kramdown markdown processor (added to the end of the file):
+Some extra build options are useful to modify the behaviour of the kramdown markdown processor (added to the end of the file). 
 
 ```yaml
+
+# Build settings
+markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
@@ -68,10 +81,10 @@ kramdown:
 ```
 
 `input: GFM` 
-: Allows processing of Github Flavored Markdown.
+: Allows processing of Github Flavored Markdown. Handy as this is the version of Markdown I most commonly use.
 
 `syntax_highlighter: rouge` 
-: Use Rouge to process the code blocks.
+: Use Rouge to process the code blocks. I prefer this to the default (coderay) because it can highlight more things such as bash.
 
 `hard_wrap: true` 
 : This is a personal preference. Tells Kramdown to ignore single new-lines. 
