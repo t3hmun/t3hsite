@@ -28,8 +28,8 @@ On top of that it simply never feels like my own design, the original template i
 ## Why Jekyll?
 
 * A static blog-site is all I need
-* GitHub is giving me free hosting
-* Seems easy
+* Convenient
+* Easy to use
 
 I've already fiddled with Jekyll and it is satisfactory.
 I've considered trying other things or even writing my own tool-chain, but that seems excessive; too many higher priority tasks to accomplish.
