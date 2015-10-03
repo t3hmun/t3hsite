@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Part 2: Clean Basic HTML"
+title: "Part 4: Clean Basic HTML"
 description: 
 ---
 
@@ -150,4 +150,13 @@ The canonical url is used by search engines to refer to the main version of a pa
 >
 > Also they are shorter, look neat, and can be used to make flowing neat structures like `/about/more-info/` instead of `about-more-info.html`.
 
-And that is the standard head section, complete for a basic page.
+```html
+ {% raw %}<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />{% endraw %}
+```
+
+This simply allows the RSS page to be automatically detected.
+
+
+And that is the standard head section, complete for any basic page.
+
+
