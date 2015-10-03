@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Part 4: Clean Basic HTML"
-description: 
+date: 2015-10-03 01:00:00
+description: Stripping out the basic HTML and starting with a clean and well understood structure.
 ---
 
 TODO:
@@ -28,7 +29,7 @@ The default Jekyll site starts out with the following HTML files:
 ```
 
 Start by deleting `/about.md`, `/header.html`, `/footer.html` and `/page.html`.
-Thay will be re-created as needed.
+They will be re-created as needed.
 
 Rename `/default.html` to `/base.html` and then strip it down to the raw basics.
 This is just a base, the fancier HTML5 stuff will come later.
