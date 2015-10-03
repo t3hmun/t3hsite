@@ -2,18 +2,28 @@
 layout: post
 title: "Part 2: Tooling Up"
 date: 2015-10-01 02:00:00
-description:
+description: "Install Ruby, Jekyll and Rouge and a quick primer on what Jekyll gives you."
 ---
 
-TODO:
+## A Quick Primer on Jekyll
 
- * Mention how Jekyll works - the inner toolchain.
-     - Markdown
-     - Liquid
-     - SASS
-     - build
-     - serve
- * Description
+Jekyll is a tool for making static blog sites.
+Static means no backing database, just served as files on a server.
+Jekyll is nice because it automatically does a bunch with a single command, `Jekyll build`:
+
+* Processes Liquid Markup
+    - Automatically creates many handy liquid variables
+    - Used for automatically generating indexes, titles, summaries etc.
+* Converts Markdown to HTML
+    - Write your blog posts in markdown
+    - Using markdown is easier and less distracting
+* Processes CSS/SASS
+    - SASS is a CSS generator, makes CSS maintainable
+
+After a build the generated files can be pasted onto a webserver and job done.
+
+Jekyll also has the handy `jekyll serve` command that monitors and rebuilds automatically, while hosting the result on a localhost server for viewing.
+This means the result of all of the prosessing can be seen immediately.
 
 ## Tooling Up
 
@@ -65,4 +75,10 @@ cd new site-name
 jekyll serve
 ```
 
+View the site in a browser.
+
 This is a good time to make an initial Git commit.
+
+## Next
+
+Next part is about nuking and sorting out the CSS. 
