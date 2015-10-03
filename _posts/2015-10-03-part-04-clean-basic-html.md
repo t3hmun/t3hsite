@@ -2,7 +2,7 @@
 layout: post
 title: "Part 4: Clean Basic HTML"
 date: 2015-10-03 01:00:00
-description: Stripping out the basic HTML and starting with a clean and well understood structure.
+description: "Stripping out the basic HTML and starting with a clean and well understood structure."
 ---
 
 TODO:
@@ -36,7 +36,7 @@ This is just a base, the fancier HTML5 stuff will come later.
 
 ```html
 {% raw %}<!DOCTYPE html>
-<html>
+<html lang="en">
 
   {% include head.html %}
 
@@ -63,6 +63,10 @@ Just enough so that posts can be read (but the title is missing).
 
 
 ## The HEAD
+
+The head section of a HTML page is rather important.
+It can dramatically alter the appearance of the page.
+The head meta also affect how search engines look at the page; I don't particularly care about SEO, but it is nice to have thing appear appropriately.
 
 The default `/head.html` is mostly kept intact. A few of the extra variable options have been removed because they add unnecessary complication. 
 
