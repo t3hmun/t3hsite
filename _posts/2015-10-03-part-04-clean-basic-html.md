@@ -28,38 +28,14 @@ The default Jekyll site starts out with the following HTML files:
     post.html
 ```
 
+Each page made with Jekyll uses a pre-defined layout that you create.
+This is a straight forward way to make templates that can be updated at any time, re-generating the corresponding pages.
+
+The includes are for sections of pages that may be common to multiple layouts.
+It can also be a nice way to logically separate different chunks of the document template for easy maintenance.
+
 Start by deleting `/about.md`, `/header.html`, `/footer.html` and `/page.html`.
-They will be re-created as needed.
-
-Rename `/default.html` to `/base.html` and then strip it down to the raw basics.
-This is just a base, the fancier HTML5 stuff will come later.
-
-```html
-{% raw %}<!DOCTYPE html>
-<html lang="en">
-
-  {% include head.html %}
-
-  <body>
-
-    {{ content }}
-
-  </body>
-
-</html>{% endraw %}
-```
-
-Post is temporarily simplified to:
-
-```html
----
-layout: base
----
-
-{% raw %}{{ content }}{% endraw %}
-```
-
-Just enough so that posts can be read (but the title is missing).
+They will be re-created later as needed.
 
 
 ## The HEAD
@@ -164,4 +140,102 @@ This simply allows the RSS page to be automatically detected.
 
 And that is the standard head section, complete for any basic page.
 
+
+## The Base Layout
+
+Start by re-naming `/default.html` to `/base.html`.
+The intention of this file is to serve as the base for other files.
+
+
+```html
+{% raw %}<!DOCTYPE html>
+<html lang="en-GB">
+
+  {% include head.html %}
+
+  <body>
+
+    {{ content }}
+
+  </body>
+
+</html>{% endraw %}
+```
+
+It starts with the HTML5 doctype tag, which is essential for the page to by properly interpreted by most browsers.
+
+Next is required html tag with language, which is useful for translating, screen reading, spell checking and probably other things.
+
+Liquid Markup is used to include the head. 
+This must be done by Liquid since further Liquid is used to customise the head for the page.
+
+HTML requires all content to appear inside the body, so the content is inserted there.
+When this page is used as a layout the content is inserted as content variable.
+
+Thankfully that was a lot more simple than the head.
+
+
+## The Post Layout
+
+Post is temporarily simplified to:
+
+```html
+---
+layout: base
+---
+
+<article>
+    <h1>{{ page.title }}</h1>
+    {{ content }}
+</article>
+```
+
+The post is wrapped in an article tag, because it is an independently coherent section.
+A `<header>` tag is not used because the header of the article is only a single `<h#>` tag.
+The header tag is only used when there is something more or different to a `<h#>` tag.
+
+The markdown of a blog post using this layout would be converted to HTML and inserted as the `content` variable.
+
+## The Index Page
+
+From this point I've started putting comments in the HTML to document the reasoning.
+
+```html
+---
+layout: base
+title: "t3hsite, t3hmun's project to learn and make good quality html5 and css/sass with Jekyll."
+description: "I don't like other people's themes and I want to learn how make a site properly so it works reliable while being easy to
+maintain."
+---
+
+<!-- Main tag signifies the main content of the page.
+  The role is a ARIA (accessibility standard) landmark used by screen readers that may not support the HTML5. -->
+<main role="main">
+  
+  <h1>Recent Posts</h1>
+  
+  <!-- Use Liquid to iterate through the 10 most recent posts in the site.
+      The title date and description for each page is also extracted using Liquid. -->
+  {% for post in site.posts limit:10 %}
+  <!-- Each of these chunks is an independent article of information. -->
+  <article>
+    <!-- <header> tag should only be used if the header is more than a single <h#> tag. -->
+    <h2>
+      <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+    </h2>
+    
+    <p>{{ post.description }}</p>
+    
+    <!-- Footer tag used for information about the article. -->
+    <footer>
+      Posted on:
+      <!-- The datetime attribute contains a machine readable date. -->
+      <time datetime="{{ post.date | date: " %F %H:%M " }}">{{ post.date | date: "%F at %H:%M" }}</time>
+    </footer>
+    
+  </article>
+  {% endfor %}
+  
+</main>
+```
 

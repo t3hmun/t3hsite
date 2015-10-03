@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- This is the base HTML file containing the parts that all pages in the site have. -->
+<!-- The language of the site. Specifying GB so that robots understand that the page should be read in an British accent.
+     Useful for translating, spell-checking, screen reading among other things. -->
+<html lang="en-GB">
 
+  <!-- The head included using Liquid Markup. -->
   {% include head.html %}
 
+  <!-- HTML requires all content to occur within the body. -->
   <body>
 
+    <!-- Any page that uses this as its layout will have its content inserted here. -->
     {{ content }}
 
   </body>

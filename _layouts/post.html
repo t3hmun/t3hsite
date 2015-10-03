@@ -1,5 +1,12 @@
 ---
+# Uses the base layout so all of the content from this file will be inserted in the body.
 layout: base
 ---
 
-{{ content }}
+<article>
+	<!-- The page title is defined as a Liquid variable so it needs to be inserted using Liquid.
+	The user should not type the h1 manually because that would result in duplication. -->
+	<h1>{{ page.title }}</h1>
+	<!-- This content will usually be the output of a converted markddown blog post. -->
+	{{ content }}
+</article>
