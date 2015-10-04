@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Part 3: Laying a CSS and SASS Foundation from Scratch"
-date: 2015-10-01 03:00:00
+date: 2015-10-04
 description: Removing the default CSS for a Jekyll site and laying a nice SASS foundation for building on.
 ---
 

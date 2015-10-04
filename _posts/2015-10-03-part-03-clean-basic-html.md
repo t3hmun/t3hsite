@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Part 4: Clean Basic HTML"
-date: 2015-10-03 01:00:00
+date: 2015-10-03
 description: "Stripping out the basic HTML and starting with a clean and well understood structure."
 ---
 
@@ -55,7 +55,6 @@ The default `/head.html` is mostly kept intact. A few of the extra variable opti
 
   <title>{{ page.title }}</title>
 
-  <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
 </head>{% endraw %}
@@ -64,38 +63,38 @@ The default `/head.html` is mostly kept intact. A few of the extra variable opti
 
 ### Line by Line Analysis
 
+Charset information required in HTML5, UTF-8 has wide language support and seems to be universally supported for everything internet:
+
 ```html
  <meta charset="utf-8">
 ```
 
- Charset information required in HTML5, UTF-8 has wide language support and seems to be universally supported for everything internet. 
+This prevents Internet Explorer from suggesting or using compatibility mode;
+It will use the mode up-to-date standard mode, with (hopefully) less quirks:
 
 ```html
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 ```
 
-This prevents Internet Explorer from suggesting or using compatibility mode;
-It will use the mode up-to-date standard mode, with (hopefully) less quirks.
+This is used to allow proper scaling and layout on mobile phones. `width=device-width` tells the mobile phone that the intended width of the page should match the device. This is a good default for a blog where the content should wrap inside the screen, maintaining the sensible default text size. This should probably be changed if a exact pixel width layout is used (not recommended unless aesthetics is the only thing that matters). `initial-scale` sets the initial zoom. With the page width matching the device, a basic zoom of 1 makes sense. See [this Mozilla Developer page](https://developer.mozilla.org/en/docs/Mozilla/Mobile/Viewport_meta_tag) for a better description.
 
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1">
 ```
 
-This is used to allow proper scaling and layout on mobile phones. `width=device-width` tells the mobile phone that the intended width of the page should match the device. This is a good default for a blog where the content should wrap inside the screen, maintaining the sensible default text size. This should probably be changed if a exact pixel width layout is used (not recommended unless aesthetics is the only thing that matters). `initial-scale` sets the initial zoom. With the page width matching the device, a basic zoom of 1 makes sense. See [this Mozilla Developer page](https://developer.mozilla.org/en/docs/Mozilla/Mobile/Viewport_meta_tag) for a better description.
+The description meta tag is used by search engines to show a description of the page to a user.
+Most search engines don't use the description for the search ranking (it is abusable), they look at the page contents directly.
 
 ```html
 <meta name="description" content="{% raw %}{{ page.description }}{% endraw %}">
-<title>{{ page.title }}</title>
+<title>{% raw %}{{ page.title }}{% endraw %}</title>
 ```
-
-The description meta tag is used by search engines to show a description of the page to a user.
-Most search engines don't use the description for the search ranking (it is abusable), they look at the page contents directly.
 
 > __Liquid Markup__ 
 >
 > This is our first encounter with liquid markup. Liquid markup is a templating language, used to arrange the content of the page.
 It is processed when Jekyll builds the site.
-It has 2 types of tags {% raw %}, `{{ aVariable }}` double braces for output and `{% if %}` brace with a percent sign for logic commands.
+It has 2 types of tags {% raw %}, `{{ aVariable }}` double braces for output and `{% if %}`{% endraw %} brace with a percent sign for logic commands.
 >
 > There are some [automatically defined variables provided by Jekyll](http://jekyllrb.com/docs/variables/), which help layout the site and individual pages.
 Variables defined in the yaml section at the top of the page can be accessed as a child of the page variable.
@@ -111,14 +110,9 @@ description: "I don't like other people's themes and I want to learn how make a 
 
 The use of `page.description` and `page.title` means that every page will need the title and description defined in the yaml section, for example the above is the what I put at the top of my `index.html`. This title and description will also be used in the site's own index/archive pages.
 
-```html
-<link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
-```
-
-A link to the CSS for the page. At this point the CSS file is generated during each Jekyll build using SASS. It combines the `_normalize.scss` and `_syntax.scss` to make a single coherent stylesheet. `site.baseurl` is defined in `_config.yml` allowing the subdomain url for links to be changed from single place.
 
 ```html
-<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+{% raw %}<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">{% endraw %}
 ```
 
 The canonical url is used by search engines to refer to the main version of a page and ignore duplicate urls. The liquid script removes `index.html` (if present) and adds the full url of the website. This might seem odd until you see the default directory and page structure that Jekyll uses. Canonical is also useful for creating permalink versions of paginated pages (a subject for another day).
@@ -183,11 +177,11 @@ Post is temporarily simplified to:
 ---
 layout: base
 ---
-
+{% raw %}
 <article>
     <h1>{{ page.title }}</h1>
     {{ content }}
-</article>
+</article>{% endraw %}
 ```
 
 The post is wrapped in an article tag, because it is an independently coherent section.
@@ -207,7 +201,7 @@ title: "t3hsite, t3hmun's project to learn and make good quality html5 and css/s
 description: "I don't like other people's themes and I want to learn how make a site properly so it works reliable while being easy to
 maintain."
 ---
-
+{% raw %}
 <!-- Main tag signifies the main content of the page.
   The role is a ARIA (accessibility standard) landmark used by screen readers that may not support the HTML5. -->
 <main role="main">
@@ -236,7 +230,7 @@ maintain."
   </article>
   {% endfor %}
   
-</main>
+</main>{% endraw %}
 ```
 
 ## Next

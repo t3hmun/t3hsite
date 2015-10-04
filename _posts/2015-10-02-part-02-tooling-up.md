@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Part 2: Tooling Up"
-date: 2015-10-01 02:00:00
+date: 2015-10-02
 description: "Install Ruby, Jekyll and Rouge and a quick primer on what Jekyll gives you."
 ---
 
@@ -81,4 +81,4 @@ This is a good time to make an initial Git commit.
 
 ## Next
 
-Next part is about nuking and sorting out the CSS. 
+Next part is about arranging the basic HTML.
