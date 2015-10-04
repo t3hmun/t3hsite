@@ -5,12 +5,6 @@ date: 2015-10-03
 description: "Stripping out the basic HTML and starting with a clean and well understood structure."
 ---
 
-TODO:
-
- * Title
- * Description
- * Date
-
 ## Strip to Minimal HTML
 
 The default Jekyll site starts out with the following HTML files:
@@ -36,6 +30,10 @@ It can also be a nice way to logically separate different chunks of the document
 
 Start by deleting `/about.md`, `/header.html`, `/footer.html` and `/page.html`.
 They will be re-created later as needed.
+
+Also delete the `/css/` and `/_sass/` directories.
+That will be started that from scratch later.
+The besic page does not require any CSS.
 
 
 ## The HEAD
