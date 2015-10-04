@@ -9,7 +9,7 @@ description: "A project to make a reliable, maintainable and most importantly us
 <main role="main">
   
   <h1> Welcome </h1>
-  
+
   {{ page.description }}
 
   <h1>Recent Posts</h1>
@@ -21,7 +21,7 @@ description: "A project to make a reliable, maintainable and most importantly us
   <article>
     <!-- <header> tag should only be used if the header is more than a single <h#> tag. -->
     <h2>
-      <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      <a class="post-link" href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">{{ post.title }}</a>
     </h2>
     
     <p>{{ post.description }}</p>

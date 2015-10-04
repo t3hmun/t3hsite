@@ -4,48 +4,39 @@
      Useful for translating, spell-checking, screen reading among other things. -->
 <html lang="en-GB">
 
-  <!-- The head included using Liquid Markup. -->
-  {% include head.html %}
+<!-- The head included using Liquid Markup. -->
+{% include head.html %}
 
-  <!-- HTML requires all content to occur within the body. -->
-  <body>
-    <!-- This is the body section of the page (ie the whole page) which is split into header, nav, *content* and a footer.
-      The content should contain a main section and possibly more.
-      These sections are semantic, divs are used for applyign formatting to each part.
-      Only body has double use of being a section and a hook for CSS formatting. -->
-    
-    <header>
-      <div class="site-header">
-        <!-- It is conventional (and useful) for the masthead to link to the homepage -->
-        <h1>
-          <a href="{{ site.baseurl }}">{{ site.title }}</a>
-        </h1>
-      </div>
-    </header>
+<!-- HTML requires all content to occur within the body. -->
 
-    <!-- The navigation for this blog is small, can be hand written. -->
-    <nav>
-      <div class="site-nav">
-        <a href="{{ site.baseurl }}about/">about</a>
-        -        
-        <a href="{{ site.baseurl }}archive/">archive</a>
-      </div>
-    </nav>
+<body>
+  <!-- This is the body section of the page (ie the whole page) which is split into header, nav, main and a footer.
+      The primary content belongs in the main. -->
 
-    <!-- The formatting div for the content will be contained within since it may contain many sections. -->
-    <!-- Any page that uses this as its layout will have its content inserted here. -->
+  <header>
+    <!-- It is conventional (and useful) for the masthead to link to the homepage -->
+    <h1>
+      <a href="{{ site.url }}{{ site.baseurl }}/">{{ site.title }}</a>
+    </h1>
+  </header>
+
+  <!-- The navigation for this blog is small, can be hand written. -->
+  <nav>
+    <a href="{{ site.url }}{{ site.baseurl }}/about/">about</a> -
+    <a href="{{ site.url }}{{ site.baseurl }}/archive/">archive</a>
+  </nav>
+
+  <!-- Any page that uses this as its layout will have its content inserted here. -->
+  <main>
     {{ content }}
-    
-    <footer>
-      <div class="site-footer">
-        <p>
-          <a href="github.com/t3hmun">My Github</a> 
-          - 
-          <a href="t3hmun.github.io">My main site</a> 
-          - blog <em>at</em> t3hmun <em>dot</em> com
-        </p>
-      </div>
-    </footer>
-  </body>
+  </main>
+  
+  <footer>
+    <p>
+      <a href="github.com/t3hmun">My Github</a> -
+      <a href="t3hmun.github.io">My Main Site</a> - blog <em>at</em> t3hmun <em>dot</em> com
+    </p>
+  </footer>
+</body>
 
 </html>

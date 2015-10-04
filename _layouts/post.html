@@ -3,10 +3,22 @@
 layout: base
 ---
 
+<!-- 
+	The base layout has this wrpapped in a main section.
+  	This is a single article layout. 
+   	A different layout would be required for multiple articles. 
+-->
 <article>
-	<!-- The page title is defined as a Liquid variable so it needs to be inserted using Liquid.
-	The user should not type the h1 manually because that would result in duplication. -->
-	<h1>{{ page.title }}</h1>
-	<!-- This content will usually be the output of a converted markddown blog post. -->
+<!-- 
+	The page title is used in multiple places so therefore it us stored and inserted using a Liquid variable.
+ 	This H1 will appear the same size as H2 in most HTML5 compliant browsers.
+	This is because the it is in 2 sectioning elements (main and article) and HTML5 shrinks H1 by one level for each nested section.
+	However HTML5 does not shrink other H# tags, leaving the H1 and H2 the same size. 
+-->
+	<h1><a href="{{ page.url | prepend: site.baseurl | prepend: site.url }}">{{ page.title }}</a></h1>
+<!-- 
+	This content will usually be the kramdown output of a markdown blog post.
+	Kramdown does not create HTML5 sectioning elements, the internal sections are denoted by header levels. 
+-->
 	{{ content }}
 </article>
