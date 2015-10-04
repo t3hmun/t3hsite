@@ -16,7 +16,7 @@ Liquid Markup is used to customise it for each page. -->
   <title>{{ page.title }}</title>
 
   <!-- The root relative url for the stylesheet. -->
-  <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+  <!-- link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}" -->
   <!-- The preferred URL for the page. Useful when there are multiple possible urls. -->
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <!-- Handy link to the RSS for the site for browsers and non-humans. -->

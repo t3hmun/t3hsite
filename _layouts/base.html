@@ -9,10 +9,43 @@
 
   <!-- HTML requires all content to occur within the body. -->
   <body>
+    <!-- This is the body section of the page (ie the whole page) which is split into header, nav, *content* and a footer.
+      The content should contain a main section and possibly more.
+      These sections are semantic, divs are used for applyign formatting to each part.
+      Only body has double use of being a section and a hook for CSS formatting. -->
+    
+    <header>
+      <div class="site-header">
+        <!-- It is conventional (and useful) for the masthead to link to the homepage -->
+        <h1>
+          <a href="{{ site.baseurl }}">{{ site.title }}</a>
+        </h1>
+      </div>
+    </header>
 
+    <!-- The navigation for this blog is small, can be hand written. -->
+    <nav>
+      <div class="site-nav">
+        <a href="{{ site.baseurl }}about/">about</a>
+        -        
+        <a href="{{ site.baseurl }}archive/">archive</a>
+      </div>
+    </nav>
+
+    <!-- The formatting div for the content will be contained within since it may contain many sections. -->
     <!-- Any page that uses this as its layout will have its content inserted here. -->
     {{ content }}
-
+    
+    <footer>
+      <div class="site-footer">
+        <p>
+          <a href="github.com/t3hmun">My Github</a> 
+          - 
+          <a href="t3hmun.github.io">My main site</a> 
+          - blog <em>at</em> t3hmun <em>dot</em> com
+        </p>
+      </div>
+    </footer>
   </body>
 
 </html>
