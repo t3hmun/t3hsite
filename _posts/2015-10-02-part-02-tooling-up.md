@@ -79,6 +79,40 @@ View the site in a browser.
 
 This is a good time to make an initial Git commit.
 
+
+### The YML Config
+
+The `_config.yml` file is the basic config for the site. Most of it should be self-explanatory.
+
+Some extra build options are useful to modify the behaviour of the kramdown markdown processor (added to the end of the file).
+
+```yaml
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  hard_wrap: false
+  header_offset: 1
+```
+
+`input: GFM` 
+: Allows processing of Github Flavored Markdown. Handy as this is the version of Markdown I most commonly use.
+
+`syntax_highlighter: rouge` 
+: Use Rouge to process the code blocks. I prefer this to the default (coderay) because it can highlight more things such as bash.
+
+`hard_wrap: true` 
+: This is a personal preference. Tells Kramdown to ignore single new-lines. 
+Double new line is a new paragraph.
+The only way to get a single new line is to use `<br>`.
+This is they way Markdown is meant to behave.
+
+`header_offset 1`
+: This reduces the header level used in the markdown by one when converting it to HTML.
+This is done to demote the title of the blog post to H2; H1 is only suitable for use once as the site header (explained in detail later).
+
 ## Next
 
 Next part is about arranging the basic HTML.
