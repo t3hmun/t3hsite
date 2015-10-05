@@ -17,13 +17,13 @@ Useful for translating, spell-checking, screen reading among other things.
 
   <!-- HTML requires all visible content to occur within the body. -->
   <body>
-    <!-- The visible content is split between the header, nav, main and a footer sectioning elements. -->
-    <header>
-      <!-- It is conventional (and useful) for the masthead to link to the homepage -->
-      <h1>
-        <a href="{{ site.url }}{{ site.baseurl }}/">{{ site.title }}</a>
-      </h1>
-    </header>
+    <!-- 
+    The visible content is split between the nav, main and a footer sectioning elements.
+    
+    Header tag is not needed if the header is fully contained in a h# tag.
+    It is conventional (and useful) for the masthead to link to the homepage.
+    -->
+    <h1><a href="{{ site.url }}{{ site.baseurl }}/">{{ site.title }}</a></h1>
 
     <!-- The navigation for a personal blog is small. -->
     <nav>
@@ -31,13 +31,17 @@ Useful for translating, spell-checking, screen reading among other things.
       <a href="{{ site.url }}{{ site.baseurl }}/archive/">archive</a>
     </nav>
 
-    <!-- Pages using this layout will have their primary content inserted here. -->
+    <!-- 
+    Pages using this layout will have their primary content inserted here.
+    The main tag helps machines separate the real content from the surrounding fluff.
+    A sectioning element should wrap the content in the content file (article or section).
+    -->
     <main>
       {{ content }} <!-- It is a variable, not magic. -->
     </main>
     
     <!-- 
-    The footer contains links that are not site content. 
+    The footer contains unimportant links and external links. 
     Content links live in the nav at the top of the page.
     This is not for navigation but for other things of interest.
     -->

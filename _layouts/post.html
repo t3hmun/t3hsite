@@ -4,25 +4,22 @@ layout: base
 ---
 
 <!-- 
-	The base layout has this wrpapped in a main section.
-  	This is a single article layout. 
-   	A different layout would be required for multiple articles. 
+The base layout has this wrapped in a main section.
+This layout contains a single main article. 
 -->
 <article>
-<!-- 
-	The page title is used in multiple places so therefore it us stored and inserted using a Liquid variable.
- 	This H1 will appear the same size as H2 in most HTML5 compliant browsers.
-	This is because the it is in 2 sectioning elements (main and article) and HTML5 shrinks H1 by one level for each nested section.
-	However HTML5 does not shrink other H# tags, leaving the H1 and H2 the same size.
-
-	Adding a link to the title is handy as a permaink for the post and separates it from H2.
-	This is a compromise, ideally Kramdown needs to be modified to output sections.
-	This will be properly formatted with CSS at a later stage.
--->
-	<h1><a href="{{ page.url | prepend: site.baseurl | prepend: site.url }}">{{ page.title }}</a></h1>
-<!-- 
-	This content will usually be the kramdown output of a markdown blog post.
-	Kramdown does not create HTML5 sectioning elements, the internal sections are denoted by header levels. 
--->
+	<!-- 
+	This article tag is nested once making the H2 the correct heading level.
+	Following the recommendations and warnings in the HTML5.1 spec [1] the header level must follow the section level.
+	H1 cannot be used here because the sectioning would cause it to shrink to H2 level.
+	[1](http://www.w3.org/TR/2015/WD-html51-20151003/semantics.html#headings-and-sections) - October 2015
+	-->
+	<h2><a href="{{ page.url | prepend: site.baseurl | prepend: site.url }}">{{ page.title }}</a></h2>
+	<!--
+	The Kramdown html output of a blog page written in markdown will be inserted as the content variable (the page must reference this file as layout). 
+	To ensure that Kramdown begins with the correct heading levels the following option can be inserted in _config.yml.
+	kramdown:
+	  header_offset: 1
+	-->
 	{{ content }}
 </article>

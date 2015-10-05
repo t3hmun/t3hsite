@@ -155,11 +155,11 @@ And that is the standard head section, complete for any basic page.
 
 ### Hierarchy
 
-According to the [HTML5 spec](http://www.w3.org/TR/2015/WD-html51-20151003/dom.html#sectioning-content):
+From the [HTML5 spec](http://www.w3.org/TR/2015/WD-html51-20151003/dom.html#sectioning-content):
  
 > Sectioning content is content that defines the scope of headings and footers.
 > 
-> `article aside nav section`
+> [`article`](http://www.w3.org/TR/2015/WD-html51-20151003/semantics.html#the-article-element) [`aside`](http://www.w3.org/TR/2015/WD-html51-20151003/semantics.html#the-aside-element) [`nav`](http://www.w3.org/TR/2015/WD-html51-20151003/semantics.html#the-nav-element) [`section`](http://www.w3.org/TR/2015/WD-html51-20151003/semantics.html#the-section-element)
 
 Sub-sections are defined by nesting these sectioning tags within one another. The heading ranks should shrink correspondingly.
 
@@ -169,21 +169,24 @@ This is intended to be used by accessibility aids such as screen readers to deli
 This does not seem to be well supported yet so the addition of ARIA (accessibility standards) role attributes helps.
 It is also likely to be used by things such as Firefox's reading feature in the future.
 
-article
+`article`
 : The article tag is any _self-contained composition_ that may be _suitable for syndication_ as the [spec puts it](http://www.w3.org/TR/2015/WD-html51-20151003/semantics.html#the-article-element).
 This is not restricted to the English definition of the word article.
 Interestingly the spec considers individual blog comments as articles, possibly because they can be thought of a thread of posts.
 
-section
+`section`
 : The least specific of the sectioning elements, could be anything that has a heading and is not one of the other sectioning elements.
 Often the child of other sectioning elements.
 
-nav
+`nav`
 : This [spec lists this](http://www.w3.org/TR/2015/WD-html51-20151003/semantics.html#the-nav-element) as having 2 main purposes.
 Navigation between pages and navigation within a page.
-As a result there would usually be a maximum of 2 nav sections in a page.
-Not all sections of links should be put in the nav, only the ones immediately important to the site.
-This is good for assertive technologies that need to be able to recognise the most salient links for the user in each context.  
+Ideally not all sections of links should be put in nav elements, only the ones immediately important to the site.
+This is good for assistive technologies that need to be able to recognise the most salient links for the user in each context.
+
+`aside`
+: Used for sidebar or tangential content that is not essential.
+The [spec](http://www.w3.org/TR/2015/WD-html51-20151003/semantics.html#the-aside-element) seems to encourage the use of asides to contain nav elements with lists of links to external sites.
 
 ### Magical Headings
 
@@ -237,13 +240,13 @@ Useful for translating, spell-checking, screen reading among other things.
 
   <!-- HTML requires all visible content to occur within the body. -->
   <body>
-    <!-- The visible content is split between the header, nav, main and a footer sectioning elements. -->
-    <header>
-      <!-- It is conventional (and useful) for the masthead to link to the homepage -->
-      <h1>
-        <a href="{{ site.url }}{{ site.baseurl }}/">{{ site.title }}</a>
-      </h1>
-    </header>
+    <!-- 
+    The visible content is split between the nav, main and a footer sectioning elements.
+    
+    Header tag is not needed if the header is fully contained in a h# tag.
+    It is conventional (and useful) for the masthead to link to the homepage.
+    -->
+    <h1><a href="{{ site.url }}{{ site.baseurl }}/">{{ site.title }}</a></h1>
 
     <!-- The navigation for a personal blog is small. -->
     <nav>
@@ -251,13 +254,17 @@ Useful for translating, spell-checking, screen reading among other things.
       <a href="{{ site.url }}{{ site.baseurl }}/archive/">archive</a>
     </nav>
 
-    <!-- Pages using this layout will have their primary content inserted here. -->
+    <!-- 
+    Pages using this layout will have their primary content inserted here.
+    The main tag helps machines separate the real content from the surrounding fluff.
+    A sectioning element should wrap the content in the content file (article or section).
+    -->
     <main>
       {{ content }} <!-- It is a variable, not magic. -->
     </main>
     
     <!-- 
-    The footer contains links that are not site content. 
+    The footer contains unimportant links and external links. 
     Content links live in the nav at the top of the page.
     This is not for navigation but for other things of interest.
     -->
@@ -284,27 +291,41 @@ Useful for translating, spell-checking, screen reading among other things.
 The template for a blog post is very simple:
 
 ```html
----
+{% raw %}---
+# Uses the base layout so all of the content from this file will be inserted in the body.
 layout: base
 ---
-{% raw %}
+
+<!-- 
+The base layout has this wrapped in a main section.
+This layout contains a single main article. 
+-->
 <article>
-  <h1><a href="{{ page.url | prepend: site.baseurl | prepend: site.url }}">{{ page.title }}</a></h1>
-    {{ content }}
-</article>{% endraw %}
+  <!-- 
+  This article tag is nested once making the H2 the correct heading level.
+  Following the recommendations and warnings in the HTML5.1 spec [1] the header level must follow the section level.
+  H1 cannot be used here because the sectioning would cause it to shrink to H2 level.
+  [1](http://www.w3.org/TR/2015/WD-html51-20151003/semantics.html#headings-and-sections) - October 2015
+  -->
+  <h2><a href="{{ page.url | prepend: site.baseurl | prepend: site.url }}">{{ page.title }}</a></h2>
+  <!--
+  The Kramdown html output of a blog page written in markdown will be inserted as the content variable (the page must reference this file as layout). 
+  To ensure that Kramdown begins with the correct heading levels the following option can be inserted in _config.yml.
+  kramdown:
+    header_offset: 1
+  -->
+  {{ content }}
+</article>
+{% endraw %}
 ```
 
 A the beginning is the yaml from matter, which specifies that this uses the base layout.
 That takes care of all of the essential HTML and site masthead, nav and so on.
 
-The post's is wrapped in an article tag, because it is an independently coherent section of the site.
-A `<header>` tag is not used because the header of the article is only a single `<h#>` tag.
-The header tag is only used when there is something more or different to a `<h#>` tag.
+The post is wrapped in an article tag, because it is an independently coherent section suitable for syndication.
 
 The markdown of a blog post using this layout would be converted to HTML and inserted as the `content` variable.
-
-There is a quirk with the size of the `H1` appearing the same as `H2`, the reason for this is explained in the next section.
-Making the title a link helps separate it from `H2` elements in the article that appear the same size. 
+The `header_offset: 1` build option should have been added to `kramdown:` section of `_config.yml` to ensure its headings follow on from the `h2` title.
 
 
 ## The Index Page
@@ -313,77 +334,10 @@ The index page is written in html because it's content is unique and not particu
 
 Liquid Markup is used to display the title description and date of the 10 most recent blog posts.
 
-This page introduces a rather interesting and oddly implemented HTML5 feature:
 
-> __HTML5 H1 Resizing in Nested Sections__
->
-> In HTML5 `H1` is not always the same standard size.
-> Every time s sectioning element is nested within another the `H1`'s text size is dropped to the next smallest H# size.
-> The idea behind this is to allow the designer to only use `H1`, allowing the nested depth of the section dictate the size of the header.
-> Unfortunately other header elements are not affected. This means that the `H1` can appear the same size or even smaller than other H# elements.
-> On the default appearance one must either use A: only  `H1` with nested sections or B: multiple header sizes with no nested sections.
-> 
-> However, normally one would implement a custom CSS to ensure behaviour appropriate to their needs. 
-> 
-> This is still a poorly supported feature and probably should not be used in a site without using CSS to replicate and guarantee the intended behaviour.
-> 
-> Further information available in [HTML5 spec - Headings and Sections](http://www.w3.org/html/wg/drafts/html/master/semantics.html#headings-and-sections).
-
-The HTML 5 spec advises:
->Sections may contain headings of any rank, but authors are strongly encouraged to either use only h1 elements, or to use elements of the appropriate rank for the section's nesting level.
-
-Which sadly results in H1 always being the the same size
-
->Authors are also encouraged to explicitly wrap sections in elements of sectioning content, instead of relying on the implicit sections generated by having multiple headings in one element of sectioning content.
-
-There is a rather lovely warning in the HTML5 Spec:
->There are currently no known implementations of the outline algorithm in graphical browsers or assistive technology user agents, although the algorithm is implemented in other software such as conformance checkers. Therefore the outline algorithm cannot be relied upon to convey document structure to users. Authors are advised to use heading rank (h1-h6) to convey document structure. 
- 
-
-Kramdown only uses different H# for its sections, which results in the title H1 in blog posts shrinking to the same size as the H2.
 
 ```html
-{% raw %}---
-layout: base
-title: "t3hsite, t3hmun's project to learn and make good quality html5 and css/sass with Jekyll."
-description: "A project to make a reliable, maintainable and most importantly user-friendly theme for Jekyll from scratch, while learning good HTML5 and SASS/CSS."
----
-
-<!-- 
-This page only uses H1; It relies on the HTML5 feature that automaticlly changes H1 according to section nesting.
-Each block within the main needs a section to put it at a higher header level than the site title.
--->
-<section>
-  <h1> Welcome </h1> {{ page.description }}
-</section>
-<section>
-  <h1>Recent Posts</h1>
-  <!-- 
-  Use Liquid to iterate through the 10 most recent posts in the site.
-  The title date and description for each page is also extracted using Liquid. 
-  -->
-  <ul>
-    {% for post in site.posts limit:10 %}
-    <li>
-      <!-- 
-      The article tag is a sectioning element making the next H1 even smaller.
-      Article is used because the title and description could be independently understood.
-      -->
-      <article>
-        <!-- <header> tag should only be used if the header is more than a single <h#> tag. -->
-        <h1><a class="post-link" href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">{{ post.title }}</a></h1>
-        <p>{{ post.description }}</p>
-        <!-- Footer tag used for information about the article. -->
-        <footer>
-          Posted on:
-          <!-- The datetime attribute contains a machine readable date. -->
-          <time datetime="{{ post.date | date: " %F %H:%M " }}">{{ post.date | date: "%F at %H:%M" }}</time>
-        </footer>
-      </article>
-    </li>
-    {% endfor %}
-  </ul>
-</section>{% endraw %}
+{% raw %}{% endraw %}
 ```
 
 ## Next
