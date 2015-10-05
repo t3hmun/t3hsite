@@ -132,44 +132,94 @@ This simply allows the RSS page to be automatically detected.
 
 And that is the standard head section, complete for any basic page.
 
+## A Primer on HTML5 the Section Model
+ 
+According to the [HTML5 spec](http://www.w3.org/html/wg/drafts/html/master/dom.html#sectioning-content-2):
+ 
+> Sectioning content is content that defines the scope of headings and footers.
+> 
+> `article aside nav section`
+
+ 
 
 ## The Base Layout
 
 Start by re-naming `/default.html` to `/base.html`.
-The intention of this file is to serve as the base for other files.
+The intention of this file is to serve as the base for other files, so the naming should reflect that.
+
+The base file contains the  essential HTML, including the head, header (site masthead), nav (site navigation links) and footer (external links and other information). In the middle is the main section which has a include for content, which could be the content of any page on the website that uses this layout.
+
+This is a small blog site so the contents of the nav and footer are manually arranged. In a larger site with more links this would be done using Liquid Markup, pulling the content from a simple to edit data file.
+
+The leading `<!DOCTYPE html>` is essential as the first test in any HTML5 file. Without it browsers may attempt to interpret the page in some king of compatibility quirk mode, resulting in an unpredictable layout.
+
 
 
 ```html
 {% raw %}<!DOCTYPE html>
+<!-- 
+This is the base HTML file serves as the template for all pages on the site.
+
+The language of the site is set in the HTML tag. 
+Specifying GB so that robots read the page in an British accent.
+Useful for translating, spell-checking, screen reading among other things. 
+-->
 <html lang="en-GB">
 
+  <!-- 
+  The head included using Liquid Markup.
+  The head is chunky with long lines, much easier to maintain in a separate file.
+  Also may get re-used eventually.
+  -->
   {% include head.html %}
 
+  <!-- HTML requires all visible content to occur within the body. -->
   <body>
+    <!-- The visible content is split between the header, nav, main and a footer sectioning elements. -->
+    <header>
+      <!-- It is conventional (and useful) for the masthead to link to the homepage -->
+      <h1>
+        <a href="{{ site.url }}{{ site.baseurl }}/">{{ site.title }}</a>
+      </h1>
+    </header>
 
-    {{ content }}
+    <!-- The navigation for a personal blog is small. -->
+    <nav>
+      <a href="{{ site.url }}{{ site.baseurl }}/about/">about</a> -
+      <a href="{{ site.url }}{{ site.baseurl }}/archive/">archive</a>
+    </nav>
 
+    <!-- Pages using this layout will have their primary content inserted here. -->
+    <main>
+      {{ content }} <!-- It is a variable, not magic. -->
+    </main>
+    
+    <!-- 
+    The footer contains links that are not site content. 
+    Content links live in the nav at the top of the page.
+    This is not for navigation but for other things of interest.
+    -->
+    <footer>
+      <br>
+      <p>
+        <a href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">RSS</a> 
+        -
+        <a href="github.com/t3hmun">My Github</a> 
+        -
+        <a href="t3hmun.github.io">My Main Site</a> 
+        - 
+        blog <em>at</em> t3hmun <em>dot</em> com
+      </p>
+    </footer>
   </body>
 
 </html>{% endraw %}
 ```
 
-It starts with the HTML5 doctype tag, which is essential for the page to by properly interpreted by most browsers.
-
-Next is required html tag with language, which is useful for translating, screen reading, spell checking and probably other things.
-
-Liquid Markup is used to include the head. 
-This must be done by Liquid since further Liquid is used to customise the head for the page.
-
-HTML requires all content to appear inside the body, so the content is inserted there.
-When this page is used as a layout the content is inserted as content variable.
-
-Thankfully that was a lot more simple than the head.
-
 
 ## The Post Layout
 
-Post is temporarily simplified to:
+The template for a blog post is very simple:
 
 ```html
 ---
@@ -177,58 +227,101 @@ layout: base
 ---
 {% raw %}
 <article>
-    <h1>{{ page.title }}</h1>
+  <h1><a href="{{ page.url | prepend: site.baseurl | prepend: site.url }}">{{ page.title }}</a></h1>
     {{ content }}
 </article>{% endraw %}
 ```
 
-The post is wrapped in an article tag, because it is an independently coherent section.
+A the beginning is the yaml from matter, which specifies that this uses the base layout.
+That takes care of all of the essential HTML and site masthead, nav and so on.
+
+The post's is wrapped in an article tag, because it is an independently coherent section of the site.
 A `<header>` tag is not used because the header of the article is only a single `<h#>` tag.
 The header tag is only used when there is something more or different to a `<h#>` tag.
 
 The markdown of a blog post using this layout would be converted to HTML and inserted as the `content` variable.
 
+There is a quirk with the size of the `H1` appearing the same as `H2`, the reason for this is explained in the next section.
+Making the title a link helps separate it from `H2` elements in the article that appear the same size. 
+
+
 ## The Index Page
 
-From this point I've started putting comments in the HTML to document the reasoning.
+The index page is written in html because it's content is unique and not particularly suited to being written in markdown like blog posts. It uses the base layout like all other pages.
+
+Liquid Markup is used to display the title description and date of the 10 most recent blog posts.
+
+This page introduces a rather interesting and oddly implemented HTML5 feature:
+
+> __HTML5 H1 Resizing in Nested Sections__
+>
+> In HTML5 `H1` is not always the same standard size.
+> Every time s sectioning element is nested within another the `H1`'s text size is dropped to the next smallest H# size.
+> The idea behind this is to allow the designer to only use `H1`, allowing the nested depth of the section dictate the size of the header.
+> Unfortunately other header elements are not affected. This means that the `H1` can appear the same size or even smaller than other H# elements.
+> On the default appearance one must either use A: only  `H1` with nested sections or B: multiple header sizes with no nested sections.
+> 
+> However, normally one would implement a custom CSS to ensure behaviour appropriate to their needs. 
+> 
+> This is still a poorly supported feature and probably should not be used in a site without using CSS to replicate and guarantee the intended behaviour.
+> 
+> Further information available in [HTML5 spec - Headings and Sections](http://www.w3.org/html/wg/drafts/html/master/semantics.html#headings-and-sections).
+
+The HTML 5 spec advises:
+>Sections may contain headings of any rank, but authors are strongly encouraged to either use only h1 elements, or to use elements of the appropriate rank for the section's nesting level.
+
+Which sadly results in H1 always being the the same size
+
+>Authors are also encouraged to explicitly wrap sections in elements of sectioning content, instead of relying on the implicit sections generated by having multiple headings in one element of sectioning content.
+
+There is a rather lovely warning in the HTML5 Spec:
+>There are currently no known implementations of the outline algorithm in graphical browsers or assistive technology user agents, although the algorithm is implemented in other software such as conformance checkers. Therefore the outline algorithm cannot be relied upon to convey document structure to users. Authors are advised to use heading rank (h1-h6) to convey document structure. 
+ 
+
+Kramdown only uses different H# for its sections, which results in the title H1 in blog posts shrinking to the same size as the H2.
 
 ```html
----
+{% raw %}---
 layout: base
 title: "t3hsite, t3hmun's project to learn and make good quality html5 and css/sass with Jekyll."
-description: "I don't like other people's themes and I want to learn how make a site properly so it works reliable while being easy to
-maintain."
+description: "A project to make a reliable, maintainable and most importantly user-friendly theme for Jekyll from scratch, while learning good HTML5 and SASS/CSS."
 ---
-{% raw %}
-<!-- Main tag signifies the main content of the page.
-  The role is a ARIA (accessibility standard) landmark used by screen readers that may not support the HTML5. -->
-<main role="main">
-  
+
+<!-- 
+This page only uses H1; It relies on the HTML5 feature that automaticlly changes H1 according to section nesting.
+Each block within the main needs a section to put it at a higher header level than the site title.
+-->
+<section>
+  <h1> Welcome </h1> {{ page.description }}
+</section>
+<section>
   <h1>Recent Posts</h1>
-  
-  <!-- Use Liquid to iterate through the 10 most recent posts in the site.
-      The title date and description for each page is also extracted using Liquid. -->
-  {% for post in site.posts limit:10 %}
-  <!-- Each of these chunks is an independent article of information. -->
-  <article>
-    <!-- <header> tag should only be used if the header is more than a single <h#> tag. -->
-    <h2>
-      <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-    </h2>
-    
-    <p>{{ post.description }}</p>
-    
-    <!-- Footer tag used for information about the article. -->
-    <footer>
-      Posted on:
-      <!-- The datetime attribute contains a machine readable date. -->
-      <time datetime="{{ post.date | date: " %F %H:%M " }}">{{ post.date | date: "%F at %H:%M" }}</time>
-    </footer>
-    
-  </article>
-  {% endfor %}
-  
-</main>{% endraw %}
+  <!-- 
+  Use Liquid to iterate through the 10 most recent posts in the site.
+  The title date and description for each page is also extracted using Liquid. 
+  -->
+  <ul>
+    {% for post in site.posts limit:10 %}
+    <li>
+      <!-- 
+      The article tag is a sectioning element making the next H1 even smaller.
+      Article is used because the title and description could be independently understood.
+      -->
+      <article>
+        <!-- <header> tag should only be used if the header is more than a single <h#> tag. -->
+        <h1><a class="post-link" href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">{{ post.title }}</a></h1>
+        <p>{{ post.description }}</p>
+        <!-- Footer tag used for information about the article. -->
+        <footer>
+          Posted on:
+          <!-- The datetime attribute contains a machine readable date. -->
+          <time datetime="{{ post.date | date: " %F %H:%M " }}">{{ post.date | date: "%F at %H:%M" }}</time>
+        </footer>
+      </article>
+    </li>
+    {% endfor %}
+  </ul>
+</section>{% endraw %}
 ```
 
 ## Next
