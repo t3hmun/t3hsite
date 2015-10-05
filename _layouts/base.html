@@ -1,42 +1,58 @@
 <!DOCTYPE html>
-<!-- This is the base HTML file containing the parts that all pages in the site have. -->
-<!-- The language of the site. Specifying GB so that robots understand that the page should be read in an British accent.
-     Useful for translating, spell-checking, screen reading among other things. -->
+<!-- 
+This is the base HTML file serves as the template for all pages on the site.
+
+The language of the site is set in the HTML tag. 
+Specifying GB so that robots read the page in an British accent.
+Useful for translating, spell-checking, screen reading among other things. 
+-->
 <html lang="en-GB">
 
-<!-- The head included using Liquid Markup. -->
-{% include head.html %}
+  <!-- 
+  The head included using Liquid Markup.
+  The head is chunky with long lines, much easier to maintain in a separate file.
+  Also may get re-used eventually.
+  -->
+  {% include head.html %}
 
-<!-- HTML requires all content to occur within the body. -->
+  <!-- HTML requires all visible content to occur within the body. -->
+  <body>
+    <!-- The visible content is split between the header, nav, main and a footer sectioning elements. -->
+    <header>
+      <!-- It is conventional (and useful) for the masthead to link to the homepage -->
+      <h1>
+        <a href="{{ site.url }}{{ site.baseurl }}/">{{ site.title }}</a>
+      </h1>
+    </header>
 
-<body>
-  <!-- This is the body section of the page (ie the whole page) which is split into header, nav, main and a footer.
-      The primary content belongs in the main. -->
+    <!-- The navigation for a personal blog is small. -->
+    <nav>
+      <a href="{{ site.url }}{{ site.baseurl }}/about/">about</a> -
+      <a href="{{ site.url }}{{ site.baseurl }}/archive/">archive</a>
+    </nav>
 
-  <header>
-    <!-- It is conventional (and useful) for the masthead to link to the homepage -->
-    <h1>
-      <a href="{{ site.url }}{{ site.baseurl }}/">{{ site.title }}</a>
-    </h1>
-  </header>
-
-  <!-- The navigation for this blog is small, can be hand written. -->
-  <nav>
-    <a href="{{ site.url }}{{ site.baseurl }}/about/">about</a> -
-    <a href="{{ site.url }}{{ site.baseurl }}/archive/">archive</a>
-  </nav>
-
-  <!-- Any page that uses this as its layout will have its content inserted here. -->
-  <main>
-    {{ content }}
-  </main>
-  
-  <footer>
-    <p>
-      <a href="github.com/t3hmun">My Github</a> -
-      <a href="t3hmun.github.io">My Main Site</a> - blog <em>at</em> t3hmun <em>dot</em> com
-    </p>
-  </footer>
-</body>
+    <!-- Pages using this layout will have their primary content inserted here. -->
+    <main>
+      {{ content }} <!-- It is a variable, not magic. -->
+    </main>
+    
+    <!-- 
+    The footer contains links that are not site content. 
+    Content links live in the nav at the top of the page.
+    This is not for navigation but for other things of interest.
+    -->
+    <footer>
+      <br>
+      <p>
+        <a href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">RSS</a> 
+        -
+        <a href="github.com/t3hmun">My Github</a> 
+        -
+        <a href="t3hmun.github.io">My Main Site</a> 
+        - 
+        blog <em>at</em> t3hmun <em>dot</em> com
+      </p>
+    </footer>
+  </body>
 
 </html>

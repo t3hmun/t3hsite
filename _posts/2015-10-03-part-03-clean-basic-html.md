@@ -33,7 +33,7 @@ They will be re-created later as needed.
 
 Also delete the `/css/` and `/_sass/` directories.
 That will be started that from scratch later.
-The besic page does not require any CSS.
+To begin with the page will rely entirely on the browser's own CSS.
 
 
 ## The HEAD

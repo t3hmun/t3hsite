@@ -13,7 +13,11 @@ layout: base
 	The page title is used in multiple places so therefore it us stored and inserted using a Liquid variable.
  	This H1 will appear the same size as H2 in most HTML5 compliant browsers.
 	This is because the it is in 2 sectioning elements (main and article) and HTML5 shrinks H1 by one level for each nested section.
-	However HTML5 does not shrink other H# tags, leaving the H1 and H2 the same size. 
+	However HTML5 does not shrink other H# tags, leaving the H1 and H2 the same size.
+
+	Adding a link to the title is handy as a permaink for the post and separates it from H2.
+	This is a compromise, ideally Kramdown needs to be modified to output sections.
+	This will be properly formatted with CSS at a later stage.
 -->
 	<h1><a href="{{ page.url | prepend: site.baseurl | prepend: site.url }}">{{ page.title }}</a></h1>
 <!-- 
