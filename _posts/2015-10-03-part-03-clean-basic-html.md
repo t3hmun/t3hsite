@@ -337,7 +337,47 @@ Liquid Markup is used to display the title description and date of the 10 most r
 
 
 ```html
-{% raw %}{% endraw %}
+{% raw %}---
+layout: base
+title: "t3hsite, t3hmun's project to learn and make good quality html5 and css/sass with Jekyll."
+description: "This is project to make a reliable, maintainable and most importantly user-friendly theme for Jekyll from scratch, while learning good HTML5 and SASS/CSS."
+---
+
+<!-- 
+Nothing on this page is an article of any sort.
+This is simply a welcome mat.
+
+This description is part of the top level of the site (H1 rank).
+-->
+<p>{{ page.description }}</p>
+
+<section>
+  <!-- The header levels follow sectioning depth. -->
+  <h2>Recent Posts</h2>
+  <!-- 
+  Use Liquid to iterate through the 10 most recent posts in the site.
+  The title date and description for each page is also extracted using Liquid. 
+  -->
+  {% for post in site.posts limit:10 %}
+
+    <section>
+      <!-- <header> tag should only be used if the header is more than a single <h#> tag. -->
+      <h3><a class="post-link" href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">{{ post.title }}</a></h3>
+      <p>{{ post.description }}</p>
+      <!-- Footer tag used for information about the article. -->
+      <footer>
+        Posted on:
+        <!-- The datetime attribute contains a machine readable date. -->
+        <time datetime="{{ post.date | date: " %F %H:%M " }}">{{ post.date | date: "%F at %H:%M" }}</time>
+      </footer>
+    </section>
+
+  {% endfor %}
+
+</section>{% endraw %}
 ```
 
+
 ## Next
+
+If it has not been done already, now is a good time to make some basic test blog posts. 
