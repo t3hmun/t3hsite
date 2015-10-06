@@ -8,20 +8,22 @@ description: Removing the default CSS for a Jekyll site and laying a nice SASS f
 ## Creating a CSS base
 
 The default Jekyll blog site already has a load of CSS; it already has a formatted layout.
-This is neither wanted or needed.
+This is neither wanted or needed, so it has all been deleted.
 
-Delete all the files in the `/_sass/` folder.
-The `/_sass/` folder contains CSS files that are combined using SASS to make up a final CSS file.
+Begin by creating a new `/_sass/` folder.
+The `/_sass/` folder will contain SASS files that are combined using SASS to make up a final CSS file.
 
 > __SASS__
 > 
-> SASS is a language/tool for generating CSS files.
+> [SASS](http://sass-lang.com/) is a language/tool for generating CSS files.
 > CSS usually get ridiculously overcomplicated as a website grows.
-> SASS adds variables and allows combination multiple files and more.
-> 
+> SASS is an extension to CSS adding variables and extra syntax to make it easier to maintain.
+> The SASS files are automatically converted into standard CSS so no special support is required to use SASS.
+
+### Normalize
 
 The implementation of CSS and HTML is not consistent across web browsers.
-In order to create a consistent basic appearance download [normalize.css](https://github.com/necolas/normalize.css/). Rename it to `_normalize.scss` and put it in the `/_sass/` folder.
+In order to create a consistent basic appearance the first CSS file will be [normalize.css](https://github.com/necolas/normalize.css/). Rename it to `_normalize.scss` and put it in the `/_sass/` folder. The extension is changed to `scss` because it is going to be processed with SASS.
 
 > __normalize.css__
 >
