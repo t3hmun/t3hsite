@@ -153,5 +153,7 @@ Prevents the proliferation of odd and mismatched features.
 
 ## Next
 
+Now this is a truly minimal Jekyll theme with syntax highlighting.
+
 The next part will be about apply formatting that _I believe_ is most suitable for a blog.
 Even if you disagree with it, it should be instructive. 

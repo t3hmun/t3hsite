@@ -39,3 +39,4 @@ On top of that it simply never feels like my own design, the original template i
 I've already fiddled with Jekyll and it is satisfactory.
 I've considered trying other things or even writing my own tool-chain, but that seems excessive; too many higher priority tasks to accomplish.
 
+I should warn that this will not be using versions of Jekyll compatible with GitHub's generator; the site will still work perfectly hosted on GitHub, but generated on your own computer, offline. GitHub compatibility limits the features available. Letting GitHub generate the site for you just creates duplication and confusion, for me it is more difficult. Best to stick with the newest version with least bugs and the most features and flexibility. Control your own tool-chain.
