@@ -1,0 +1,14 @@
+---
+# Files that are not in special directories require these YAML front matter to be processed by Jekyll.
+---
+@charset "utf-8";
+// This is our main SASS file that brings together all the scss files to generate a main CSS file. 
+
+$base-gutter: 10px;
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+        "normalize",
+        "syntax",
+        "style"
+;
