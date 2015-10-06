@@ -9,12 +9,17 @@ description: "This is documentation of my attempt to make a Jekyll blog-site fro
 
 This is documentation of my attempt to make a Jekyll blog-site from scratch, deleting most of the default cruft, justifying every single line for maximum understanding. This is my way of creating a nice theme for my site and learning good HTML5 and CSS/SASS along the way. 
 
-The primary purpose of this documentation is to act as a lab book, solidify everything I learn and act as a reference for when I forget. However I've added extra details so that it may server as a tutorial for others who would like to learn in the same comprehensive manner.
+I've attempted to write this like a tutorial to fast-forward people to my level of understanding on these topics. This is not for people who are unfamiliar with code, I expect that one should be able to understand a for loop in a new language without help. Also I expect you can vaguley understand HTML and CSS. This project is about finding out about the important details, nuances that make markup good. 
 
-I am not convinced by the 'responsive design' fad, however I will be creating a website that perfectly adapts to any device, screen or window size.
-Blog sites have no need to be as complicated as they are.
-For me utility is far more important than aesthetics.
-Besides aesthetics tends to be just looking like everybody else.
+
+_A small rant on responsive design_
+: Although I have a stong belief that a website should properly adapt to any screen type, I am not convinced by the 'responsive design' fad.
+A website can adapt perfectly without complicated and wild changes that resposive design seems to involve; it becomes inconsisent and confusing.
+A website shouldn't loose features or drastically change it's look and feel just because its a different design.
+I'm not interested in playing spot the hidden menu.
+Blog sites have no benefit in being as complicated as they are.
+For me utility is far more important than popular aesthetics.
+Besides popular aesthetics tends to be just looking like everybody else.
 
 
 ## Why?
