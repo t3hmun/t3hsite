@@ -7,7 +7,6 @@
 //
 
 // TODO:
-// - ol li
 // - div for site nav
 // - div for site footer
 // - div for post date? (need to think about where the date belongs)
@@ -114,7 +113,7 @@ p {
 }
 
 // Set the basic common appearance between other-text elements.
-ul, blockquote, dl {
+ol, ul, blockquote, dl {
     // Wider than the reading width, but not excessively wide.
     max-width: $other-text-width;
 
@@ -157,7 +156,9 @@ ul {
     ul {
         // New kind of bullet for level 2.
         list-style: circle inside none;
+    }
 
+    ul, ol {
         // Sub-lists only require extra left indent, no other spacing (otherwise the flow is disrupted).
         padding: 0 $base;
         margin: 0;
@@ -166,6 +167,38 @@ ul {
             // New kind of bullet for level 3.
             list-style: square inside none;
         }
+    }
+
+    ol {
+        // Ordered sublists use letters.
+        list-style-type: lower-latin;
+    
+        ol {
+            // Ordered sub-sublists use roman-numerals.
+            list-style-type: lower-roman;
+        }
+    }
+}
+
+ol {
+    // The top-bottom spacing uses the gutter.
+    // The indent spacing uses the text size.
+    padding: $base-gutter $base;
+
+    ol {
+        // Ordered sublists use letters.
+        list-style-type: lower-latin;
+
+        ol {
+            // Ordered sub-sublists use roman-numerals.
+            list-style-type: lower-roman;
+        }
+    }
+
+    ul, ol {
+        // Sub-lists only require extra left indent, no other spacing (otherwise the flow is disrupted).
+        padding: 0 $base;
+        margin: 0;
     }
 }
 
