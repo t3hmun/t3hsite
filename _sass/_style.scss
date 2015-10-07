@@ -1,7 +1,240 @@
-body {
-    margin: $base-gutter;
+// _style.scss written by t3hmun (Manish Parekh, t3hmun at gmail dot com)
+//
+// License:
+// 
+// Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+// http://creativecommons.org/licenses/by-sa/4.0/ 
+//
+
+// TODO:
+// - ol li
+// - div for site nav
+// - div for site footer
+// - div for post date? (need to think about where the date belongs)
+// - wide pictures
+// - small pictures
+// - special block art pre :)
+
+// I write a lot of comments in here.
+// Makes updating possible when I come back to this in years time when HTML5 is obsolete and it needs updating for the mind-machine interface.
+// Also useful for other people who want to understand and modify this for their own purposes.
+// Modifying other people themes is rarely fun or good learning.
+// People assume that the reasons are obvious, but CSS cant self-document as much as code.
+// CSS retains almost no context for figuring out why it was done.
+// I'm also not afraid to document a bad reasoning, hopefully someone will correctly me if there is any.
+// I hope this is nice to work on, enjoy.
+
+// All comments are single line and not multiple because only single line are automatically removed (they make no sense after processing).
+
+// Colours and Sizes
+// =================
+// No colours or sizes are directly defined in this file.
+// The are all inserted via variables defined in the main scss file.
+// This ensures easy tweaking of colour and size style.
+// Also aids consistency in colour and style (helps resist colour and size proliferation).
+// 
+// WARNING: All colour variables are spelt in British English (not American color).
+// I find myself compelled to write in British English where possible, common sense be damned.
+
+// A note on Margins and Padding for the Gutter
+// ============================================
+// In most elements the $base-gutter is used as the top-bottom margin.
+// This works well as the margins overlap and create a consistent vertical gap between all elements.
+// The left-right margin is mostly auto, this is used to centre the blocks in the screen.
+// This means the gutter must be enforced using $base-gutter as left-right padding.
+// If the gutter is not enforced text can end up squished against the sides of the screen on smaller devices / windows.
+// In the rare scenario where elements need to be placed side by side wrapper divs and spans with margins would be needed.
+
+// A note on Max-Widths
+// ====================
+// There are three defined widths:
+// - $reading-width 
+//   - The smallest width
+//   - Intended for reading solid text
+// - $content-width 
+//   - The with restricting all content
+//   - Headings are aligned to the left of it creating a scannable document outline effect on wider screens. 
+//   - Code fills it because code requires long un-interrupted lines.
+//   - Not infinite because some screens are very wide and the width disparity would be disruptive to the flow.
+// - $other-text-width
+//   - A compromise between the other two widths
+//   - Used for elements that could benefit from the extra space
+//   - Lists are more legible on longer lines that fit an entire line (only code is suitable for super long lines however).
+//   - Blockquotes and lists need extra margin space for their unique styling.
+// 
+// All content is placed in a block of one of these sizes.
+// All blocks are centred so that they flow to each other properly. 
+// 
+// These are maximums, there is no minimum.
+// As a result all content flows to accommodate smooth reading in smaller screens (without shrinking text).
+
+// This sets all elements to have their borders inside their allotted space.
+// A prime case is the blockquote; a think left border would normally make a mess of the width.
+// Makes it much easier to keep things predictable.
+// It may be considered a lazy way of doing things, but right now it feels pragmatic, things are complicated enough.
+html {
+    box-sizing: border-box;
 }
 
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    background: $background-colour;
+    color: $text-colour;
+    // Auto margin to centre the body.
+    // This means padding will have to be added manually to maintain a gutter.
+    margin: auto;
+
+    // Apply maximum width to all content.
+    max-width: $content-width;
+}
+
+// Assuming that most p blocks are for pure text.
+// p blocks in other situations have extra CSS to redefine the style.
+p {
+    // Hard reading requires a narrow width.
+    // Also allows text to squish to smaller screens.
+    max-width: $reading-width;
+
+    // Justify is good for hard reading.
+    text-align: justify;
+
+    // Block display with auto margins centres the block in the screen.
+    display: block;
+    margin: auto;
+
+    // Add padding to maintain a gutter and spacing from other elements.
+    padding: $base-gutter;
+
+    code {
+        color: $subtle-fore-colour;
+    }
+}
+
+// Set the basic common appearance between other-text elements.
+ul, blockquote, dl {
+    // Wider than the reading width, but not excessively wide.
+    max-width: $other-text-width;
+
+    // Block display with auto left-right margins centres the block.
+    display: block;
+    margin: $base-gutter auto;
+
+    // Creates a
+    padding: $base-gutter;
+
+    // These elements have an unusual width, so they require some kind of box to demarcate the space they are mean to consume.
+    background-color: $subtle-back-colour;
+
+    // I love justified text everywhere, this is an opinion.
+    text-align: justify;
+
+    // Reset p to fill the containing element instead of constricting itself to $reading-width.
+    p {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+// A nice chunky line on the left to differentiate blockquotes.
+blockquote {
+    border-left: solid $blockquote-side-line $medium-colour;
+
+    blockquote {}
+}
+
+ul {
+    // The bullet point is placed inside the padding.
+    list-style: disc outside none;
+
+    // The top-bottom spacing uses the gutter.
+    // The indent spacing uses the text size.
+    padding: $base-gutter $base;
+
+    ul {
+        // New kind of bullet for level 2.
+        list-style: circle inside none;
+
+        // Sub-lists only require extra left indent, no other spacing (otherwise the flow is disrupted).
+        padding: 0 $base;
+        margin: 0;
+
+        ul {
+            // New kind of bullet for level 3.
+            list-style: square inside none;
+        }
+    }
+}
+
+// Most of the styling for pre is done by the syntax stylesheet.
 pre {
     padding: $base-gutter;
+}
+
+// Header 1 is the site mast-head.
+// Gets special size and centring and font-type.
+h1 {
+    text-align: center;
+    font-size: 3 * $base;
+    font-family: monospace;
+}
+
+// Header 2 is the highest title for content (ie not the masthead).
+// Due to it being special it gets to be the highlight colour along with the H1.
+h1, h2 {
+    // Although margin could be used for left-right here (not centred so no need for auto) I prefer not to.
+    // This results in the underline touching both screen edges. Feels nice.
+    // The code element has to use padding to stop it content touching its own edge (I do not want to double gutter code, would be horrible on small screens).
+    // It is nice to have other elements follow suit.
+    margin: $base-gutter 0;
+    padding: 0 $base-gutter;
+    color: $highlight-colour;
+
+    a {
+        // Underlines look bad.
+        text-decoration: none;
+
+        // H1 and H2 do not need special link colours due to thier unique roles.
+        // H2 is always a link to itself.
+        // H1 is always a link to the home.
+        color: $highlight-colour;
+    }
+
+    a:hover {
+        color: $link-colour;
+    }
+}
+
+// All headers (except for the unique H1) get an underline and a special link colour.
+// The border used as an underline is essential for tying a left aligned header to centred text which may have some distance to it.
+// It is good for the headers to be left aligned because it creates an easy to scan outline on screens that are wider than the reading area.
+
+// H2 gets a uniquely strong underline as the article title.
+h2 {
+    border-bottom: solid 1px $highlight-colour;
+}
+
+h3, h4, h5, h6 {
+    border-bottom: solid $header-underline $light-colour;
+    // See `h1, h2` for reasoning for the next 2 lines.
+    margin: $base-gutter 0;
+    padding: 0 $base-gutter;
+
+    // Generally these headings in articles should not be links so no special behaviour required.
+    // They may be links in archive / recent post lists, where normal link colour is appropriate.
+}
+
+a {
+    // I don't like underlines.
+    // If it is a link section (like nav) its link nature is obvious.
+    // If it is a link in a paragraph of text, underline is far too distracting, the link is secondary to the text.
+    text-decoration: none;
+    color: $link-colour;
+}
+
+a:hover {
+    color: $link-hover-colour;
 }
