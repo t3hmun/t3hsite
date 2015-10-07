@@ -79,6 +79,7 @@ html {
 body {
     background: $background-colour;
     color: $text-colour;
+    font-size: $base;
     // Auto margin to centre the body.
     // This means padding will have to be added manually to maintain a gutter.
     margin: auto;
