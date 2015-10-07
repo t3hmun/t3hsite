@@ -211,6 +211,7 @@ h1 {
     text-align: center;
     font-size: 3 * $base;
     font-family: monospace;
+    padding: $big-gutter;
 }
 
 // Header 2 is the highest title for content (ie not the masthead).
@@ -283,24 +284,33 @@ a:hover {
 
 
 .site-nav {
+    // Centre, restrict within content area, pad like everything else.
     text-align: center;
-
     max-width: $content-width;
-    padding: $base-gutter;
-
+    padding: 0 $base-gutter;
+    margin: $base-gutter 0;
 }
 
 .site-footer {
+    // Centre, restrict within content area.
     text-align: center;
-
     max-width: $content-width;
-    padding: $base-gutter;
-
+    // Use a large vertical gutter to set it apart.
+    padding: $big-gutter $base-gutter;
+    margin: $big-gutter 0;
+    // Smaller font size for non-main-content information.
+    font-size: $small-font-size;
+    // A line to separate the footer from the main body.
+    border-top: solid $site-footer-top-border $highlight-colour;
 }
 
 .date-time-footer {
+    // Small italic text, this is extra info that can be ignored.
     font-style: italic;
-    max-width: $content-width;
-    margin: $base-gutter;
     font-size: $small-font-size;
+    // Restrict to content wodth, lines up with heading.
+    max-width: $content-width;
+    // Base margin, no pad since its small sandwiched between things.
+    margin: $base-gutter;
+    padding: 0;
 }

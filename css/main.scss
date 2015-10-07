@@ -19,6 +19,7 @@ $base: 19px;
 
 //The basic gutter is fixed. It works with most font sizes.
 $base-gutter: 5px;
+$big-gutter: $base;
 
 // The max width for pure text content.
 // I want roughly 60 characters per line for hard reading.
@@ -52,8 +53,11 @@ $light-colour: lighten($highlight-colour, 28%);
 $subtle-back-colour: mix($highlight-colour, $background-colour, 10%);
 $subtle-fore-colour: mix($highlight-colour, $text-colour, 50%);
 
+
+// Some highly specific adjustments:
 $header-underline: 1px;
 $blockquote-side-line: $base/2;
+$site-footer-top-border: 1px;
 
 
 
