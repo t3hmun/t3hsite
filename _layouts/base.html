@@ -27,8 +27,10 @@ Useful for translating, spell-checking, screen reading among other things.
 
     <!-- The navigation for a personal blog is small. -->
     <nav>
-      <a href="{{ site.url }}{{ site.baseurl }}/about/">about</a> -
-      <a href="{{ site.url }}{{ site.baseurl }}/archive/">archive</a>
+      <div class="site-nav">
+        <a href="{{ site.url }}{{ site.baseurl }}/about/">about</a> -
+        <a href="{{ site.url }}{{ site.baseurl }}/archive/">archive</a>
+      </div>
     </nav>
 
     <!-- 
@@ -46,16 +48,17 @@ Useful for translating, spell-checking, screen reading among other things.
     This is not for navigation but for other things of interest.
     -->
     <footer>
-      <br>
-      <p>
-        <a href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">RSS</a> 
-        -
-        <a href="github.com/t3hmun">My Github</a> 
-        -
-        <a href="t3hmun.github.io">My Main Site</a> 
-        - 
-        blog <em>at</em> t3hmun <em>dot</em> com
-      </p>
+      <div class="site-footer">
+        <p>
+          <a href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">RSS</a> 
+          -
+          <a href="github.com/t3hmun">My Github</a> 
+          -
+          <a href="t3hmun.github.io">My Main Site</a> 
+          - 
+          blog <em>at</em> t3hmun <em>dot</em> com
+        </p>
+      </div>
     </footer>
   </body>
 

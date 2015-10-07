@@ -7,9 +7,6 @@
 //
 
 // TODO:
-// - div for site nav
-// - div for site footer
-// - div for post date? (need to think about where the date belongs)
 // - wide pictures
 // - small pictures
 // - special block art pre :)
@@ -270,4 +267,39 @@ a {
 
 a:hover {
     color: $link-hover-colour;
+}
+
+
+
+
+// Special Divs
+// ============
+//
+// This is the section for styling parts fo the sites that are not entirely covered with basic HTML.
+// The site nav and footer require special divs for their styling.
+// The nav, header and footer tags should not be used for styling, thay arte for sectioning only.
+// Divs must be used where the standard styles fail to provide.
+
+
+.site-nav {
+    text-align: center;
+
+    max-width: $content-width;
+    padding: $base-gutter;
+
+}
+
+.site-footer {
+    text-align: center;
+
+    max-width: $content-width;
+    padding: $base-gutter;
+
+}
+
+.date-time-footer {
+    font-style: italic;
+    max-width: $content-width;
+    margin: $base-gutter;
+    font-size: $small-font-size;
 }
