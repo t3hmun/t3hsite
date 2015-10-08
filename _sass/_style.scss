@@ -7,8 +7,6 @@
 //
 
 // TODO:
-// - wide pictures
-// - small pictures
 // - special block art pre :)
 
 // I write a lot of comments in here.
@@ -291,7 +289,12 @@ a:hover {
     color: $link-hover-colour;
 }
 
-
+// By default markdown inserts images inside a <p>, making the image article width.
+// To get a wide image insert it in a div (img manually typed too) and it fills the content area.
+img {
+    text-align: center;
+    width:100%;
+}
 
 
 // Special Divs
