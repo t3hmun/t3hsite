@@ -97,19 +97,19 @@ kramdown:
   header_offset: 1
 ```
 
-`input: GFM` 
+`input: GFM`{: .highlight .language-yaml} 
 : Allows processing of Github Flavored Markdown. Handy as this is the version of Markdown I most commonly use.
 
-`syntax_highlighter: rouge` 
+`syntax_highlighter: rouge`{: .highlight .language-yaml} 
 : Use Rouge to process the code blocks. I prefer this to the default (coderay) because it can highlight more things such as bash.
 
-`hard_wrap: true` 
+`hard_wrap: true`{: .highlight .language-yaml} 
 : This is a personal preference. Tells Kramdown to ignore single new-lines. 
 Double new line is a new paragraph.
 The only way to get a single new line is to use `<br>`.
 This is they way Markdown is meant to behave.
 
-`header_offset 1`
+`header_offset 1`{: .highlight .language-yaml} 
 : This reduces the header level used in the markdown by one when converting it to HTML.
 This is done to demote the title of the blog post to H2; H1 is only suitable for use once as the site header (explained in detail later).
 
