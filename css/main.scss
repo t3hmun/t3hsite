@@ -17,9 +17,13 @@
 // This is my basic size, it is used as the main font size and *all* other things are scaled off it.
 $base: 19px;
 
-//The basic gutter is fixed. It works with most font sizes.
-$base-gutter: 5px;
-$big-gutter: $base;
+// Gutter is the space from edge of screen. 
+// Fixed to look neat on all sizes without wasting screen space.
+// vspace is vertical and should match the text size.
+$gutter: 5px;
+$vspace: $base;
+$mini-vspace: $base / 2;
+$big-vspace: $base * 2;
 
 // The max width for pure text content.
 // I want roughly 60 characters per line for hard reading.
