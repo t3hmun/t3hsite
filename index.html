@@ -21,17 +21,7 @@ This description is part of the top level of the site (H1 rank).
   -->
   {% for post in site.posts limit:10 %}
 
-    <section>
-      <!-- <header> tag should only be used if the header is more than a single <h#> tag. -->
-      <h3><a class="post-link" href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">{{ post.title }}</a></h3>
-      <!-- Footer tag used for information about the article. -->
-      <footer>
-        <span class="date-time-footer">Posted on:
-        <!-- The datetime attribute contains a machine readable date. -->
-        <time datetime="{{ post.date | date: " %F %H:%M " }}">{{ post.date | date: "%F at %H:%M" }}</time></span>
-      </footer>
-      <p>{{ post.description }}</p>
-    </section>
+    {% include index-entry.html %}
 
   {% endfor %}
 

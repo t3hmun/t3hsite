@@ -213,11 +213,6 @@ pre {
     padding: 0 $gutter;
 }
 
-.reading-width { 
-    max-width: $reading-width;
-    margin: $vspace auto;
-    padding: 0 $gutter;
-}
 
 // Header 1 is the site mast-head.
 // Gets special size and centring and font-type.
@@ -368,4 +363,17 @@ a:hover {
     a:hover {
         color: $link-colour;
     }
+}
+
+
+.reading-width { 
+    max-width: $reading-width;
+    margin: $vspace auto;
+    padding: 0 $gutter;
+}
+
+.content-width { 
+    max-width: $reading-width;
+    margin: $vspace auto;
+    padding: 0 $gutter;
 }
