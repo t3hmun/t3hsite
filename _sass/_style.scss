@@ -6,9 +6,6 @@
 // http://creativecommons.org/licenses/by-sa/4.0/ 
 //
 
-// TODO:
-// - special block art pre :)
-
 // I write a lot of comments in here.
 // Makes updating possible when I come back to this in years time when HTML5 is obsolete and it needs updating for the mind-machine interface.
 // Also useful for other people who want to understand and modify this for their own purposes.
@@ -216,6 +213,12 @@ pre {
     padding: 0 $gutter;
 }
 
+.reading-width { 
+    max-width: $reading-width;
+    margin: $vspace auto;
+    padding: 0 $gutter;
+}
+
 // Header 1 is the site mast-head.
 // Gets special size and centring and font-type.
 h1 {
@@ -289,13 +292,6 @@ a:hover {
     color: $link-hover-colour;
 }
 
-// By default markdown inserts images inside a <p>, making the image article width.
-// To get a wide image insert it in a div (img manually typed too) and it fills the content area.
-img {
-    text-align: center;
-    width:100%;
-}
-
 
 // Special Divs
 // ============
@@ -350,4 +346,26 @@ img {
     display: block;
     margin: 0 auto;
     padding: 0 $gutter;
+}
+
+.art {
+    text-align: left;
+    color: $highlight-colour;
+    //font-family: "Monaco";
+    font-family: "Source Code Pro";
+    white-space: pre;
+    line-height: 140%;
+    letter-spacing: 0;
+    display: inline-block;
+    margin: auto;
+
+
+    a {
+        color: $highlight-colour;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: $link-colour;
+    }
 }

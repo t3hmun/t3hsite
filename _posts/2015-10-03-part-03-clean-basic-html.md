@@ -21,6 +21,7 @@ The default Jekyll site starts out with the following HTML files:
     page.html
     post.html
 ```
+{: .reading-width} 
 
 Each page made with Jekyll uses a pre-defined layout that you create.
 This is a straight forward way to make templates that can be updated at any time, re-generating the corresponding pages.
