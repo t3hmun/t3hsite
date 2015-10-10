@@ -52,6 +52,7 @@ Rouge will output syntax stylesheets using the rougify command:
 cd _sass
 rougify style monokai > _syntax.scss
 ```
+{: .reading-width}
 
 In this example the _monokai_ theme is chosen See [the rouge source](https://github.com/jneen/rouge/tree/master/lib/rouge/themes) for the names of other themes. Rouge supports the stylesheets used by 
 
@@ -112,6 +113,7 @@ body {
     margin: 10px;
 }
 ```
+{: .reading-width}
 
 Reading without a margin is uncomfortable.
 Here a set size in px, not em.
@@ -124,6 +126,7 @@ pre {
     padding: 10px;
 }
 ```
+{: .reading-width}
 
 _It is important to understand the difference between padding and margin._
 _I have not had time to write about this, but you should make sure you fully understand and experiment with swapping the two._
@@ -139,6 +142,7 @@ Add this to the middle of the `/css/main.scss` file:
 ```scss
 $base-gutter: 10px;
 ```
+{: .reading-width}
 
 Now replace each occurrence of `10px` in `/style.css` with `$base-gutter`.
 This is a SASS variable.
