@@ -387,3 +387,9 @@ a:hover {
     margin: $vspace auto;
     padding: 0 $gutter;
 }
+
+.other-text-width { 
+    max-width: $other-text-width;
+    margin: $vspace auto;
+    padding: 0 $gutter;
+}
