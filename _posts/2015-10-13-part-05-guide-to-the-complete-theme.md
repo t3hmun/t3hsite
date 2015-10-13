@@ -16,6 +16,29 @@ Nevertheless an article is a much better format for such documentation.
 
 To begin with a quick run-down of what the converted markdown looks like.
 
+### Basic Formatting
+
+There is _emphasis_ and __strong__ (Markdown: `_emphasis_` and `__strong__`), all the `_` can be swapped for `*` as with standard Markdown.
+
+This is a normal paragraph of text. I believe that roughly 60 characters per line is suitable for comfortable fast reading, hence these blocks of text are limited in width.
+
+> As you may have noticed this is wider than the main text of this article.
+> This is intentional.
+> Blockquotes would not read well in the tiny width occupied by normal text.
+> This element's with is set via the `$other-text-with` variable.  
+> 
+> > This is a blockquote inside a blockquote. 
+> > There must be an empty ` > ` line before starting this sub-blockquote.
+
+There are three widths that content is grouped and fit into:
+
+1. Content width:
+    - This is the most wide width and bound all page content.
+    - Headings are left aligned in this width, makes them stand out on the side of a wide screen.
+    - Code uses content width; code is best viewed in long unbroken lines.
+2. Article width:
+    - This is CONTINUE HERE¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+
 ### Headings
 
 Although the markdown for the above header is `### Headings` the html is actually `<h4>`.
