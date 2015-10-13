@@ -101,7 +101,11 @@ p {
     padding: 0 $gutter;
 
     code {
+        // Separate colour to differentiate it from the normal text.
         color: $subtle-fore-colour;
+        // This helps prevent line breaks unless absolutely necessary (line breaks can obfuscate spaces).
+        display: inline-block;
+        // No border or background, that would break the flow of reading; this is in-line code, meant to be read as part of a sentence. 
     }
 }
 
