@@ -213,12 +213,24 @@ pre {
     padding: 0 $gutter;
 }
 
+h1 { font-size: $h1size; }
+h2 { font-size: $h2size; }
+h3 { font-size: $h3size; }
+h4 { font-size: $h4size; }
+h5 { font-size: $h5size; }
+h6 { font-size: $h6size; }
+
+h1 { color: $h1colour; }
+h2 { color: $h2colour; }
+h3 { color: $h3colour; }
+h4 { color: $h4colour; }
+h5 { color: $h5colour; }
+h6 { color: $h6colour; }
 
 // Header 1 is the site mast-head.
 // Gets special size and centring and font-type.
 h1 {
     text-align: center;
-    font-size: 3 * $base;
     font-family: monospace;    
 
     // Block display with auto margins centres the block in the screen.
@@ -230,7 +242,6 @@ h1 {
 }
 
 // Header 2 is the highest title for content (ie not the masthead).
-// Due to it being special it gets to be the highlight colour along with the H1.
 h1, h2 {
     // Although margin could be used for left-right here (not centred so no need for auto) I prefer not to.
     // This results in the underline touching both screen edges. Feels nice.
@@ -239,16 +250,15 @@ h1, h2 {
     // Relys on normal non-hugging elements to apply normal margins.
     margin: $mini-vspace 0;
     padding: 0 $gutter;
-    color: $highlight-colour;
 
     a {
         // Underlines look bad.
         text-decoration: none;
+        color: $highlight-colour;
 
         // H1 and H2 do not need special link colours due to thier unique roles.
         // H2 is always a link to itself.
         // H1 is always a link to the home.
-        color: $highlight-colour;
     }
 
     a:hover {

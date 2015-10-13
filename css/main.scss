@@ -64,6 +64,22 @@ $blockquote-side-line: $base/2;
 $site-footer-top-border: 1px;
 
 
+// H1 is much bigger than the rest, it is the site masthead.
+$h1size: 3 * $base;
+// The headers get smaller in diminishing steps; larger sizes are more similar to eachother relative to thier own size.
+$h2size: 2.0 * $base;
+$h3size: 1.7 * $base;
+$h4size: 1.4 * $base;
+$h5size: 1.2 * $base;
+$h6size: 1.0 * $base;
+
+// H1 and H2 link colour is set to $highlight-colour 
+$h1colour: $highlight-colour; // H1 is special, masthead only.
+$h2colour: mix($text-colour, $highlight-colour, 5%); // Main title for article / top section.
+$h3colour: mix($text-colour, $highlight-colour, 25%);
+$h4colour: mix($text-colour, $highlight-colour, 30%);
+$h5colour: mix($text-colour, $highlight-colour, 45%);
+$h6colour: mix($text-colour, $highlight-colour, 60%);
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 // Imported in order where lower in the list overrides higher.
