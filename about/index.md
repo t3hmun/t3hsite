@@ -10,8 +10,7 @@ Minimal Jekyll theme using HTML5, focused on readability and ease of editing; al
 
 I wrote a series of blog posts on the development of the theme, documenting what I learnt in a way that may be useful for other with basic web dev knowledge.
 
-__Key Points:__ 
-{: .other-text-width }
+### Key Points 
 
  * Jekyll.
      - Kramdown with GFM (GitHub Markdown) mode.
