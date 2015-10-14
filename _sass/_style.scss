@@ -137,26 +137,32 @@ blockquote {
     }
 }
 
-ul {
-    // The bullet point is placed inside the padding.
-    list-style: disc inside none;
-
+ul, ol {
     // Block display with auto margins centres the block in the screen.
     // Vertical margins to space elements.
     // Add padding to maintain a gutter.
     display: block;
     margin: $vspace auto;
-    padding: 0 $gutter;
+    padding: 0 $gutter 0 $bullet-padding;
+
+    // Make adjustments for the $gutter that other elements have and $bullet-padded that lists have. 
+    max-width: $other-text-width - $bullet-padding + $gutter;
+
+    ul, ol {
+        // Sub-lists only require extra left indent, no other spacing (otherwise the flow is disrupted).
+        padding: 0 $bullet-padding;
+        margin: 0;
+    }
+}
+
+// Styles for unordered list hierarchies.
+ul {
+    // The bullet point is placed inside the padding.
+    list-style: disc inside none;
 
     ul {
         // New kind of bullet for level 2.
         list-style: circle inside none;
-    }
-
-    ul, ol {
-        // Sub-lists only require extra left indent, no other spacing (otherwise the flow is disrupted).
-        padding: 0 $base;
-        margin: 0;
 
         ul {
             // New kind of bullet for level 3.
@@ -175,14 +181,8 @@ ul {
     }
 }
 
+// Styles for ordered list hierarchies.
 ol {
-    // Block display with auto margins centres the block in the screen.
-    // Vertical margins to space elements.
-    // Add padding to maintain a gutter.
-    display: block;
-    margin: $vspace auto;
-    padding: 0 $gutter;
-
     list-style: decimal inside;
 
     ol {
@@ -195,10 +195,14 @@ ol {
         }
     }
 
-    ul, ol {
-        // Sub-lists only require extra left indent, no other spacing (otherwise the flow is disrupted).
-        padding: 0 $base;
-        margin: 0;
+    ul {
+        // New kind of bullet for level 2.
+        list-style: circle inside none;
+        
+        ul {
+            // New kind of bullet for level 3.
+            list-style: square inside none;
+        }
     }
 }
 

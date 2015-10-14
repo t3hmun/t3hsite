@@ -24,7 +24,7 @@ $base: 18px;
 // In order to make it consistent it must be a px size.
 // Normal zoom works fine with this.
 // One compromise is that text-only zoom will be a disaster with this absolute line-height.
-$line-height: $base * 1.6;
+$line-height: round($base * 1.6);
 
 // Gutter is the space from edge of screen. 
 // Fixed to look neat on all sizes without wasting screen space.
@@ -68,9 +68,10 @@ $subtle-fore-colour: mix($highlight-colour, $text-colour, 50%);
 
 // Some highly specific adjustments:
 $header-underline: 1px;
-$blockquote-side-line: $base/2;
+$blockquote-side-line: round($base/2);
 $site-footer-top-border: 1px;
 $code-border-thickness: 1px;
+$bullet-padding: $base;
 
 
 // H1 is much bigger than the rest, it is the site masthead.
