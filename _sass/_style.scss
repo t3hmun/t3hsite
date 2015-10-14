@@ -363,17 +363,16 @@ a:hover {
     padding: 0 $gutter;
 }
 
+// Special tag for block-art.
 .art {
     text-align: left;
     color: $highlight-colour;
-    //font-family: "Monaco";
     font-family: "Source Code Pro";
     white-space: pre;
-    line-height: 140%;
+    line-height: $base;
     letter-spacing: 0;
     display: inline-block;
     margin: auto;
-
 
     a {
         color: $highlight-colour;
@@ -385,7 +384,8 @@ a:hover {
     }
 }
 
-
+// The following three divs are for resizing element to fit different widths.
+// They can be inserted into Markdown using `{: .other-text-width }` to add the appropriate div to the most recent block. 
 .reading-width { 
     max-width: $reading-width;
     margin: $vspace auto;
