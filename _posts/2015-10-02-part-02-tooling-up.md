@@ -50,6 +50,7 @@ Next run the install script for the DevKit so that the Ruby installation can use
 ruby dk.rb init
 ruby dk.rb install
 ```
+{: .reading-width}
 
 
 ### Jekyll and Friends
@@ -61,6 +62,7 @@ Rouge is a syntax highlighter, its installation can be skipped if the abilty to 
 gem install jekyll
 gem install rouge
 ```
+{: .reading-width}
 
 
 ## Create a Not So Fresh New Jekyll Site
@@ -74,6 +76,7 @@ jekyll new site-name
 cd new site-name
 jekyll serve
 ```
+{: .reading-width}
 
 View the site in a browser.
 
@@ -96,6 +99,7 @@ kramdown:
   hard_wrap: false
   header_offset: 1
 ```
+{: .reading-width}
 
 `input: GFM`{: .highlight .language-yaml} 
 : Allows processing of Github Flavored Markdown. Handy as this is the version of Markdown I most commonly use.
