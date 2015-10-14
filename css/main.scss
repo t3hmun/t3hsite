@@ -14,16 +14,23 @@
 @charset "utf-8";
 // This is our main SASS file that brings together all the scss files to generate a main CSS file. 
 
-// This is my basic size, it is used as the main font size and *all* other things are scaled off it.
-$base: 19px;
+// This is my basic size, it is used as the main font size and *all* other things are scaled off it (except the gutter).
+// The only number that is used outside of this file is zero.
+$base: 18px;
+
+// This is the value that defines the vertical rhythm for the whole document.
+// All text sizes (except for the H1 and H2) share this spacing.
+// H1 and H2 are too big and have double spacing, hence staying with the rhythm.
+// In order to make it consistent it must be a px size.
+// Normal zoom works fine with this.
+// One compromise is that text-only zoom will be a disaster with this absolute line-height.
+$line-height: $base * 1.6;
 
 // Gutter is the space from edge of screen. 
 // Fixed to look neat on all sizes without wasting screen space.
-// vspace is vertical and should match the text size.
+// vspace is vertical and should be set to match the line-height in order to cerate a sconsistent vertical rhythm.
 $gutter: 5px;
-$vspace: $base;
-$mini-vspace: $base / 2;
-$big-vspace: $base * 2;
+$vspace: $line-height;
 
 // The max width for pure text content.
 // I want roughly 60 characters per line for hard reading.
@@ -41,6 +48,7 @@ $content-width: $reading-width * 2;
 // Also gives space for the extra gutter parts of these elements.
 $other-text-width: $reading-width * 1.5;
 
+// Used for side information, such as post-date subtitle.
 $small-font-size: $base * 0.9;
 
 // Only 4 colours to edit to make a new theme.
@@ -51,7 +59,7 @@ $link-colour: mix(#00f, $highlight-colour, 80%); // Mixing with traditional link
 
 $link-hover-colour: $highlight-colour;
 
-//These mixes may need tweaking on some themes.
+// These mixes may need tweaking on some themes.
 $medium-colour: lighten($highlight-colour, 15%);
 $light-colour: lighten($highlight-colour, 28%);
 $subtle-back-colour: mix($highlight-colour, $background-colour, 10%);

@@ -30,11 +30,11 @@
 // A note on Margins and Padding for the Gutter
 // ============================================
 // In most elements the $vspace is used as the top-bottom margin.
+// $vspace is based off the line-height to create a consistent vertical rhythm.
 // This works well as the margins overlap and create a consistent vertical gap between all elements.
 // The left-right margin is mostly auto, this is used to centre the blocks in the screen.
 // This means the gutter must be enforced using $gutter as left-right padding.
 // If the gutter is not enforced text can end up squished against the sides of the screen on smaller devices / windows.
-// In the rare scenario where elements need to be placed side by side wrapper divs and spans with margins would be needed.
 
 // A note on Max-Widths
 // ====================
@@ -63,13 +63,7 @@
 // A prime case is the blockquote; a think left border would normally make a mess of the width.
 // Makes it much easier to keep things predictable.
 // It may be considered a lazy way of doing things, but right now it feels pragmatic, things are complicated enough.
-html {
-    box-sizing: border-box;
-}
 
-*, *:before, *:after {
-    box-sizing: inherit;
-}
 
 body {
     background: $background-colour;
@@ -81,6 +75,11 @@ body {
 
     // Apply maximum width to all content.
     max-width: $content-width;
+
+    // Universal line height, helps maintain consistent spacing throughout the page.
+    // This should scale up when the user zooms in.
+    // Large text sizes may need extra line spacing, but this spacing should be generous enough for most headers.
+    line-height: $line-height;
 }
 
 // Assuming that most p blocks are for pure text.
@@ -140,7 +139,9 @@ ol, ul, blockquote, dl {
 blockquote {
     border-left: solid $blockquote-side-line $medium-colour;
 
-    blockquote {}
+    blockquote {
+        margin: 0 $gutter;
+    }
 }
 
 ul {
@@ -239,11 +240,7 @@ h1 {
     font-family: monospace;    
 
     // Block display with auto margins centres the block in the screen.
-    // Vertical margins to space elements.
-    // Add padding to maintain a gutter.
     display: block;
-    margin: $vspace auto;
-    padding: 0 $gutter;
 }
 
 // Header 2 is the highest title for content (ie not the masthead).
@@ -252,16 +249,18 @@ h1, h2 {
     // This results in the underline touching both screen edges. Feels nice.
     // The code element has to use padding to stop it content touching its own edge (I do not want to double gutter code, would be horrible on small screens).
     // $mini-vspace is used to allow hugging subtitles. 
-    // Relys on normal non-hugging elements to apply normal margins.
-    margin: $mini-vspace 0;
+    // Relies on normal non-hugging elements to apply normal margins.
+    margin: $vspace 0;
     padding: 0 $gutter;
+
+    line-height: $line-height * 2;
 
     a {
         // Underlines look bad.
         text-decoration: none;
         color: $highlight-colour;
 
-        // H1 and H2 do not need special link colours due to thier unique roles.
+        // H1 and H2 do not need special link colours due to their unique roles.
         // H2 is always a link to itself.
         // H1 is always a link to the home.
     }
@@ -283,7 +282,7 @@ h2 {
 h3, h4, h5, h6 {
     border-bottom: solid $header-underline $light-colour;
     // See `h1, h2` for reasoning for the next 2 lines.
-    margin: $mini-vspace 0;
+    margin: $vspace 0 0 0;
     padding: 0 $gutter;
 
     // Generally these headings in articles should not be links so no special behaviour required.
@@ -332,7 +331,7 @@ a:hover {
 
     //Extra margin to space footer away from content.
     display: block;
-    margin: $big-vspace auto;
+    margin: $vspace auto;
     // Vertical padding to space text away from border line.
     // Horixontal padding for gutter.
     padding: $vspace $gutter;
@@ -347,7 +346,7 @@ a:hover {
     // Small italic text, this is extra info that can be ignored.
     font-style: italic;
     font-size: $small-font-size;
-    // Restrict to content wodth, lines up with heading.
+    // Restrict to content width, lines up with heading.
     max-width: $content-width;
 
     // Block display with auto margins centres the block in the screen.
