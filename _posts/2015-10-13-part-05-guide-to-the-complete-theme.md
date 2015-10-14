@@ -32,12 +32,18 @@ This is a normal paragraph of text. I believe that roughly 60 characters per lin
 
 There are three widths that content is grouped and fit into:
 
-1. Content width:
+1. Content width (`<h#>`):
     - This is the most wide width and bound all page content.
-    - Headings are left aligned in this width, makes them stand out on the side of a wide screen.
+    - Headings are left aligned at this width so they stand out on a wide screen.
     - Code uses content width; code is best viewed in long unbroken lines.
-2. Article width:
-    - This is CONTINUE HERE¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+2. Reading width (`<p>`):
+    - This is the smallest width, should be between 60 to 80 characters wide.
+    - Intended for comfortable reading of lots of text.
+    - Too narrow for other content.
+3. Other-text width (`<ol>`,`<ul>`,`<dl>`,`<blockquote>`):
+    - This is a mix between the other two widths.
+    - Intended for feature text element like lists and blockquotes.
+
 
 ### Headings
 
