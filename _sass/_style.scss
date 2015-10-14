@@ -59,12 +59,6 @@
 // These are maximums, there is no minimum.
 // As a result all content flows to accommodate smooth reading in smaller screens (without shrinking text).
 
-// This sets all elements to have their borders inside their allotted space.
-// A prime case is the blockquote; a think left border would normally make a mess of the width.
-// Makes it much easier to keep things predictable.
-// It may be considered a lazy way of doing things, but right now it feels pragmatic, things are complicated enough.
-
-
 body {
     background: $background-colour;
     color: $text-colour;
@@ -135,9 +129,11 @@ ol, ul, blockquote, dl {
     }
 }
 
-// A nice chunky line on the left to differentiate blockquotes.
 blockquote {
+    // A chunky line on the left side to denote blockquotes.
     border-left: solid $blockquote-side-line $medium-colour;
+    // The border increases the width, so it must be shrunk by that much.
+    max-width: $other-text-width - $blockquote-side-line;
 
     blockquote {
         margin: 0 $gutter;
@@ -241,47 +237,55 @@ h1 {
 
     // Block display with auto margins centres the block in the screen.
     display: block;
-}
-
-// Header 2 is the highest title for content (ie not the masthead).
-h1, h2 {
-    // Although margin could be used for left-right here (not centred so no need for auto) I prefer not to.
-    // This results in the underline touching both screen edges. Feels nice.
-    // The code element has to use padding to stop it content touching its own edge (I do not want to double gutter code, would be horrible on small screens).
-    // $mini-vspace is used to allow hugging subtitles. 
-    // Relies on normal non-hugging elements to apply normal margins.
     margin: $vspace 0;
     padding: 0 $gutter;
 
+    // H1 requires extra line-height due to its large size.
     line-height: $line-height * 2;
+}
 
+// H1 and 2 have unique link colour.
+h1, h2 {
     a {
         // Underlines look bad.
         text-decoration: none;
         color: $highlight-colour;
 
         // H1 and H2 do not need special link colours due to their unique roles.
-        // H2 is always a link to itself.
+        // H2 is always a link to itself (article).
         // H1 is always a link to the home.
     }
 
+    // The hover makes it obvious that it is a link when the user is exploring the page.
     a:hover {
         color: $link-colour;
     }
 }
 
-// All headers (except for the unique H1) get an underline and a special link colour.
+// All headers (except for the unique H1) get an underline.
 // The border used as an underline is essential for tying a left aligned header to centred text which may have some distance to it.
 // It is good for the headers to be left aligned because it creates an easy to scan outline on screens that are wider than the reading area.
 
 // H2 gets a uniquely strong underline as the article title.
 h2 {
-    border-bottom: solid 1px $highlight-colour;
+    border-bottom: solid $header-underline $highlight-colour;
+
+    // The border must be removed from the line-height in order to maintain a consistent vertical rhythm.
+    // H2 uses double line-height due to its large size.
+    line-height: ($line-height * 2) - $header-underline;
+
+    // Zero size margins so the underline stretches across the content area.
+    // Zero bottom margin so that a meta-sub-title can hug the bottom (post date, tags etc.).
+    margin: $vspace 0 0 0;
+    padding: 0 $gutter;
 }
 
 h3, h4, h5, h6 {
+    // Underline
     border-bottom: solid $header-underline $light-colour;
-    // See `h1, h2` for reasoning for the next 2 lines.
+
+    // Zero size margins so the underline stretches across the content area.
+    // Zero bottom margin so that a meta-sub-title can hug the bottom (post date, tags etc.).
     margin: $vspace 0 0 0;
     padding: 0 $gutter;
 
@@ -307,7 +311,7 @@ a:hover {
 //
 // This is the section for styling parts fo the sites that are not entirely covered with basic HTML.
 // The site nav and footer require special divs for their styling.
-// The nav, header and footer tags should not be used for styling, thay arte for sectioning only.
+// The nav, header and footer tags should not be used for styling, they are for sectioning only.
 // Divs must be used where the standard styles fail to provide.
 
 
@@ -333,7 +337,7 @@ a:hover {
     display: block;
     margin: $vspace auto;
     // Vertical padding to space text away from border line.
-    // Horixontal padding for gutter.
+    // Horizontal padding for gutter.
     padding: $vspace $gutter;
 
     // Smaller font size for non-main-content information.
