@@ -227,17 +227,17 @@ This was achieved by marking the code span with 2 classes that make Rouge take n
 
 <p>However They can be made to scale to the other sizes by inserting them in a html div:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"other-text-width"</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"/img/a_picture.png"</span> <span class="na">alt=</span><span class="s">"A simple picture"</span><span class="nt">&gt;&lt;/div&gt;</span>`
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"other-text-width"</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"{{ site.baseurl }}/img/a_picture.png"</span> <span class="na">alt=</span><span class="s">"A simple picture"</span><span class="nt">&gt;&lt;/div&gt;</span>`
 </code></pre>
 </div>
 
-<div class="other-text-width"><img src="/img/a_picture.png" alt="A simple picture" /></div>
+<div class="other-text-width"><img src="/t3hsite/img/a_picture.png" alt="A simple picture" /></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div&gt;&lt;img</span> <span class="na">src=</span><span class="s">"/img/a_picture.png"</span> <span class="na">alt=</span><span class="s">"A simple picture"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div&gt;&lt;img</span> <span class="na">src=</span><span class="s">"{{ site.baseurl }}/img/a_picture.png"</span> <span class="na">alt=</span><span class="s">"A simple picture"</span><span class="nt">&gt;&lt;/div&gt;</span>
 </code></pre>
 </div>
 
-<div><img src="/img/a_picture.png" alt="A simple picture" /></div>
+<div><img src="/t3hsite/img/a_picture.png" alt="A simple picture" /></div>
 
 <p>The <code class="highlighter-rouge">&lt;div&gt;</code> is required to suppress Kramdown from automatically inserting a <code class="highlighter-rouge">&lt;p&gt;</code> and also for inserting the width class for the smaller sizes.</p>
 
