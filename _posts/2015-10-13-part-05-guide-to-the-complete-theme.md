@@ -2,15 +2,51 @@
 layout: post
 title: "Part 5: Guide to the Complete Theme"
 date: 2015-10-13
-description: I completed the theme, documenting as I went along, this post details the features and how to use them.
+description: "I completed the theme, documenting as I went along, this post details the features and how to use them."
 ---
 
 ## Overview
 
 After laying out the basics I proceeded to complete the theme using similar ideas to my original messy [Rather Simple Jekyll Theme]().
 However this time I had a the plan in place before proceeding to write it, hence the theme layout is much neater.
-It is also comprehensively documented, most of the ideas are laid out at the top of `/css/main.scss` and `_sass/_style.scss`.
+It is also comprehensively commented, most of the ideas are laid out at the top of `/css/main.scss` and `_sass/_style.scss`.
 Nevertheless an article is a much better format for such documentation.
+
+
+### Features From the User Perspective
+
+I've accessibility and ease of use were high on my list of priorities in the design.
+
+I've purposely avoided having menus or content on the sides of the page.
+There are many reasons for this:
+
+* Side menus don't flow with the page content.
+* Side menus are distracting.
+* Side menus are not small screen friendly.
+* Side menus don't work with special needs style-sheets.
+
+This site looks acceptable with when the CSS is deleted; this is one way of knowing how well reading mode and accessibility tools will cope with the site.
+
+The header hierarchy is rigorously obeyed. 
+Sadly the HTML5 section hierarchy is not created all the way through because Kramdown does not produce HTML5 sections.
+However I believe the header hierarchy is enough for most modern tools to work with.
+
+
+### Features from the Developer Perspective
+
+If you look at the source, the ridiculous amount of comments will be obvious.
+This was done to help people who are still learning CSS, HTML and the other stuff with Jekyll.
+
+All sizes and colours are defined in variables in a single file `/css/main.scss` separate from the actual styling CSS.
+This means that you do not have to search through reams of CSS to change a size or colour.
+Simply find the relevant entry in the main file and change the value once for everything.
+
+Switching to a dark theme requires changing 2 colours and using `rougify` to output a suitable syntax stylesheet (see [Part 4 #Syntax]({{ site.url }}{{ site.baseurl }}/2015/10/04/part-04 css-and-sass-foundation-from-scratch.html#syntax)).
+
+There are very few classes used for styling.
+I've tried to stick to the basic HTML tags for most things.
+This makes the purpose of the CSS more obvious as most elements things stick to their default use.
+
 
 ## Markdown Usage
 
@@ -135,3 +171,18 @@ This is automatically inserted using the title in the Yaml-Front-Matter, so the 
 
 As you can see this is the same size as the previous heading; this is because it's the seventh heading size on the HTML page, which can't exist, so it is defaulted to `<h6>`.
 Ideally you don't want to be using that many sizes of headings, but if you do then you must define a custom div for it and apply manually in the Markdown.
+
+## How To Implement
+
+There are a few steps to make this theme your own:
+
+ * Clone or download this repository
+ * Make sure you have Jekyll and rouge installed (see [Part 2: Tooling Up]({{ site.url }}{{ site.baseurl }}/2015/10/02/part-02-tooling-up.html))
+ * Customize `/_config.yml`
+ * Delete or rewrite `/about/`
+ * Title and Description in `/index.html`
+ * Customise the footer in `/_layouts/base.html`
+ * Customise the colours in `/css/main.scss`
+
+Finally you need to write your own blog posts.
+If there is anything else that I have forgotten, I'm sure you can figure it out.
