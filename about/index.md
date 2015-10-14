@@ -22,6 +22,9 @@ I wrote a series of blog posts on the development of the theme, documenting what
      - Easy to flip into a dark or other theme.
  * Not compatible for generating on GitHub pages (but fine to host on there).
      - This makes life a lot easier, less restrictions.
+ * Tries to follow the [British Dyslexic Association Style Guide](http://www.bdadyslexia.org.uk/common/ckeditor/filemanager/userfiles/About_Us/policies/Dyslexia_Style_Guide.pdf).
+     - I'm not dyslexic but I do find their guidelines rather comfortable.
+     - This does result in a small sacrifice to style (no justified-text).
 
 
 ## Long Version
