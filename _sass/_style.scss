@@ -83,8 +83,7 @@ p {
     // Also allows text to squish to smaller screens.
     max-width: $reading-width;
 
-    // Justify is good for hard reading.
-    text-align: justify;
+
 
     // Block display with auto margins centres the block in the screen.
     // Vertical margins to space elements.
@@ -118,8 +117,6 @@ ol, ul, blockquote, dl {
     // These elements have an unusual width, so they require some kind of box to demarcate the space they are mean to consume.
     background-color: $subtle-back-colour;
 
-    // I love justified text everywhere, this is an opinion.
-    text-align: justify;
 
     // Reset p to fill the containing element instead of constricting itself to $reading-width.
     p {
