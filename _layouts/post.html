@@ -15,6 +15,11 @@ This layout contains a single main article.
 	[1](http://www.w3.org/TR/2015/WD-html51-20151003/semantics.html#headings-and-sections) - October 2015
 	-->
 	<h2><a href="{{ page.url | prepend: site.baseurl | prepend: site.url }}">{{ page.title }}</a></h2>
+  <footer>
+    <span class="heading-footer">Posted on:
+    <!-- The datetime attribute contains a machine readable date. -->
+    <time datetime="{{ post.date | date: " %F %H:%M " }}">{{ page.date | date: "%F at %H:%M" }}</time></span>
+  </footer>
 	<!--
 	The Kramdown html output of a blog page written in markdown will be inserted as the content variable (the page must reference this file as layout). 
 	To ensure that Kramdown begins with the correct heading levels the following option can be inserted in _config.yml.

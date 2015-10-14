@@ -347,8 +347,8 @@ a:hover {
     border-top: solid $site-footer-top-border $highlight-colour;
 }
 
-// The meta-sub-title for the title of an article.
-.date-time-footer {
+// The meta-sub-title for a heading.
+.heading-footer {
     // Small italic text, this is extra info that can be ignored.
     font-style: italic;
     font-size: $small-font-size;
