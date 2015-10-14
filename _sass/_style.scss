@@ -51,7 +51,7 @@
 //   - A compromise between the other two widths
 //   - Used for elements that could benefit from the extra space
 //   - Lists are more legible on longer lines that fit an entire line (only code is suitable for super long lines however).
-//   - Blockquotes and lists need extra margin space for their unique styling.
+//   - Blockquotes and lists need extra space for their unique styling.
 // 
 // All content is placed in a block of one of these sizes.
 // All blocks are centred so that they flow to each other properly. 
@@ -314,7 +314,7 @@ a:hover {
 // The nav, header and footer tags should not be used for styling, they are for sectioning only.
 // Divs must be used where the standard styles fail to provide.
 
-
+// Top level site <nav>.
 .site-nav {
     // Centre, restrict within content area, pad like everything else.
     text-align: center;
@@ -328,6 +328,7 @@ a:hover {
     padding: 0 $gutter;
 }
 
+// Top level site <footer>.
 .site-footer {
     text-align: center; // Centre text.
     // Width needs to match content area due to dividing border line.
@@ -346,6 +347,7 @@ a:hover {
     border-top: solid $site-footer-top-border $highlight-colour;
 }
 
+// The meta-sub-title for the title of an article.
 .date-time-footer {
     // Small italic text, this is extra info that can be ignored.
     font-style: italic;
