@@ -9,8 +9,8 @@ Liquid Markup is used to customise it for each page. -->
   This prevents the phone from rendering a minature parody of the desktop appearance of the site.
   The design of the site must be suitable for this kind of wrapping in a smaller space. -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- A decription for search engines and other non-humans. -->
-  <meta name="description" content="{{ page.description }}">
+  <!-- A decription for search engines and other non-humans. If the page has not description set default to site descritpion. -->
+  <meta name="description" content="{% if page.description == nil %}{{ site.description }}{% else %}{{ page.description }}{% endif %}">
 
   <!-- Title used by the browser and also by search engines and non-humans. -->
   <title>{{ page.title }}</title>
