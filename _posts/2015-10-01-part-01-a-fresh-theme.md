@@ -12,8 +12,9 @@ This is documentation of my attempt to make a Jekyll blog-site from scratch, del
 I've attempted to write this like a tutorial to fast-forward people to my level of understanding on these topics. This is not for people who are unfamiliar with code, I expect that one should be able to understand a for loop in a new language without help. Also I expect you can vaguley understand HTML and CSS. This project is about finding out about the important details, nuances that make markup good. 
 
 
-_A small rant on responsive design_
-: Although I have a stong belief that a website should properly adapt to any screen type, I am not convinced by the 'responsive design' fad.
+> __A small rant on responsive design:__
+>
+>Although I have a stong belief that a website should properly adapt to any screen type, I am not convinced by the 'responsive design' fad.
 A website can adapt perfectly without complicated and wild changes that resposive design seems to involve; it becomes inconsisent and confusing.
 A website shouldn't loose features or drastically change it's look and feel just because its a different design.
 I'm not interested in playing spot the hidden menu.
