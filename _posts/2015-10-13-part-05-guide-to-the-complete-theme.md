@@ -131,8 +131,8 @@ This was done by inserting `{: .reading-width}` as the line immediately after th
 ### Images
 
 By default images resize to fit the reading-with area. 
-`![A simple picture](/img/a_picture.png)`:
-![A simple picture](/img/a_picture.png)
+`![A simple picture]({% raw %}{{ site.baseurl }}{% endraw %}/img/a_picture.png)`:
+![A simple picture]({{ site.baseurl }}/img/a_picture.png)
 
 However They can be made to scale to the other sizes by inserting them in a html div:
 
