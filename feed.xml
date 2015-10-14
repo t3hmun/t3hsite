@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>t3hsite</title>
+    <description>This is project to make a reliable, maintainable and most importantly user-friendly theme for Jekyll from scratch, while learning good HTML5 and SASS/CSS.</description>
+    <link>http://t3hmun.github.io/t3hsite/</link>
+    <atom:link href="http://t3hmun.github.io/t3hsite/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 15 Oct 2015 00:21:14 +0100</pubDate>
+    <lastBuildDate>Thu, 15 Oct 2015 00:21:14 +0100</lastBuildDate>
+    <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Part 5: Guide to the Complete Theme</title>
+        <description>I completed the theme, documenting as I went along, this post details the features and how to use them.</description>
+        <pubDate>Tue, 13 Oct 2015 00:00:00 +0100</pubDate>
+        <link>http://t3hmun.github.io/t3hsite/2015/10/13/part-05-guide-to-the-complete-theme.html</link>
+        <guid isPermaLink="true">http://t3hmun.github.io/t3hsite/2015/10/13/part-05-guide-to-the-complete-theme.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Part 3: Laying a CSS and SASS Foundation from Scratch</title>
+        <description>Removing the default CSS for a Jekyll site and laying a nice SASS foundation for building on.</description>
+        <pubDate>Sun, 04 Oct 2015 00:00:00 +0100</pubDate>
+        <link>http://t3hmun.github.io/t3hsite/2015/10/04/part-04%20css-and-sass-foundation-from-scratch.html</link>
+        <guid isPermaLink="true">http://t3hmun.github.io/t3hsite/2015/10/04/part-04%20css-and-sass-foundation-from-scratch.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Part 4: Clean Basic HTML</title>
+        <description>Stripping out the basic HTML and starting with a clean and well understood structure.</description>
+        <pubDate>Sat, 03 Oct 2015 00:00:00 +0100</pubDate>
+        <link>http://t3hmun.github.io/t3hsite/2015/10/03/part-03-clean-basic-html.html</link>
+        <guid isPermaLink="true">http://t3hmun.github.io/t3hsite/2015/10/03/part-03-clean-basic-html.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Part 2: Tooling Up</title>
+        <description>Install Ruby, Jekyll and Rouge and a quick primer on what Jekyll gives you.</description>
+        <pubDate>Fri, 02 Oct 2015 00:00:00 +0100</pubDate>
+        <link>http://t3hmun.github.io/t3hsite/2015/10/02/part-02-tooling-up.html</link>
+        <guid isPermaLink="true">http://t3hmun.github.io/t3hsite/2015/10/02/part-02-tooling-up.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Part 1: A Fresh Jekyll Site</title>
+        <description>This is documentation of my attempt to make a Jekyll blog-site from scratch, deleting most of the default cruft, justifying every single line for maximum understanding. Learning good HTML5 and CSS along the way.</description>
+        <pubDate>Thu, 01 Oct 2015 00:00:00 +0100</pubDate>
+        <link>http://t3hmun.github.io/t3hsite/2015/10/01/part-01-a-fresh-theme.html</link>
+        <guid isPermaLink="true">http://t3hmun.github.io/t3hsite/2015/10/01/part-01-a-fresh-theme.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Test Post</title>
+        <description>Test post to see how various mardown formatting options appear.</description>
+        <pubDate>Wed, 30 Sep 2015 00:00:00 +0100</pubDate>
+        <link>http://t3hmun.github.io/t3hsite/2015/09/30/test-post.html</link>
+        <guid isPermaLink="true">http://t3hmun.github.io/t3hsite/2015/09/30/test-post.html</guid>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
