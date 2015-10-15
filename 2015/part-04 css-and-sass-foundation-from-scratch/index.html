@@ -11,20 +11,19 @@ Useful for translating, spell-checking, screen reading among other things.
   <!-- 
   The head included using Liquid Markup.
   The head is chunky with long lines, much easier to maintain in a separate file.
-  Also may get re-used eventually.
   -->
   <!-- This is an include file because all pages use the same head.
 Liquid Markup is used to customise it for each page. -->
 <head>
   <!-- UTF-8 is the best supported modern character-set used almost everywhere. -->
   <meta charset="utf-8">
-  <!-- This is needed to supress Internet Explorer's compatibility mode and make it operate with minimum quirks. -->
+  <!-- This is needed to suppress Internet Explorer's compatibility mode and make it operate with minimum quirks. -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <!-- This informs small screen devices that the content is intended to wrap inside the screen-width without scaling. 
-  This prevents the phone from rendering a minature parody of the desktop appearance of the site.
+  This prevents the phone from rendering a miniature parody of the desktop appearance of the site.
   The design of the site must be suitable for this kind of wrapping in a smaller space. -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- A decription for search engines and other non-humans. If the page has not description set default to site descritpion. -->
+  <!-- A description for search engines and other non-humans. If the page has not description set default to site description. -->
   <meta name="description" content="Removing the default CSS for a Jekyll site and laying a nice SASS foundation for building on.">
 
   <!-- Title used by the browser and also by search engines and non-humans. -->
@@ -51,8 +50,8 @@ Liquid Markup is used to customise it for each page. -->
     <!-- The navigation for a personal blog is small. -->
     <nav>
       <div class="site-nav">
-        <a href="http://t3hmun.github.io/t3hsite/about/">about</a> -
-        <a href="http://t3hmun.github.io/t3hsite/archive/">archive</a>
+        <a href="http://t3hmun.github.io/t3hsite/about/">About</a> │
+        <a href="http://t3hmun.github.io/t3hsite/archive/">Archive</a>
       </div>
     </nav>
 
@@ -165,7 +164,7 @@ Notice that the name of this folder does not start with a <code class="highlight
 
 <p>Add the stylesheet next to the metadata in <code class="highlighter-rouge">_includes/head.html</code> to apply it to the website:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"{{ "</span><span class="err">/</span><span class="na">css</span><span class="err">/</span><span class="na">main</span><span class="err">.</span><span class="na">css</span><span class="err">"</span> <span class="err">|</span> <span class="na">prepend:</span> <span class="na">site</span><span class="err">.</span><span class="na">baseurl</span> <span class="err">}}"</span><span class="nt">&gt;</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"{{ site.baseurl }}/css/main.css"</span><span class="nt">&gt;</span>
 </code></pre>
 </div>
 
@@ -231,8 +230,8 @@ Prevents the proliferation of odd and mismatched features.</p>
 
 <p>Now this is a truly minimal Jekyll theme with syntax highlighting.</p>
 
-<p>The next part will be about apply formatting that <em>I believe</em> is most suitable for a blog.
-Even if you disagree with it, it should be instructive.</p>
+<p>The <a href="http://t3hmun.github.io/t3hsite/2015/part-05-guide-to-the-complete-theme">next part</a> will be about appling formatting that <em>I believe</em> is most suitable for a blog.
+Even if you disagree with it, it should be interesting.</p>
 
 </article>
  <!-- It is a variable, not magic. -->
