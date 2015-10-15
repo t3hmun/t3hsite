@@ -17,6 +17,9 @@ Nevertheless an article is a much better format for such documentation.
 
 I've accessibility and ease of use were high on my list of priorities in the design.
 
+I've avoided justifying text, leaving a ragged right.
+Justified text has a much neater appearance but many people find difficult to read.
+
 I've purposely avoided having menus or content on the sides of the page.
 There are many reasons for this:
 

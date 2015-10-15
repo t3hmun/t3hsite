@@ -399,6 +399,6 @@ This description is part of the top level of the site (H1 rank).
 
 ## Next
 
-If it has not been done already, now is a good time to make some basic test blog posts. Alternatively you can pop over to the [releases page](https://github.com/t3hmun/t3hsite/releases) for this project and grab the zip for this stage.
+If it has not been done already, now is a good time to make some basic test blog posts.
 
 Next is CSS and SASS. Colour and style, but never forgetting usability.
