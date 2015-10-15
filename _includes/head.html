@@ -3,13 +3,13 @@ Liquid Markup is used to customise it for each page. -->
 <head>
   <!-- UTF-8 is the best supported modern character-set used almost everywhere. -->
   <meta charset="utf-8">
-  <!-- This is needed to supress Internet Explorer's compatibility mode and make it operate with minimum quirks. -->
+  <!-- This is needed to suppress Internet Explorer's compatibility mode and make it operate with minimum quirks. -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <!-- This informs small screen devices that the content is intended to wrap inside the screen-width without scaling. 
-  This prevents the phone from rendering a minature parody of the desktop appearance of the site.
+  This prevents the phone from rendering a miniature parody of the desktop appearance of the site.
   The design of the site must be suitable for this kind of wrapping in a smaller space. -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- A decription for search engines and other non-humans. If the page has not description set default to site descritpion. -->
+  <!-- A description for search engines and other non-humans. If the page has not description set default to site description. -->
   <meta name="description" content="{% if page.description == nil %}{{ site.description }}{% else %}{{ page.description }}{% endif %}">
 
   <!-- Title used by the browser and also by search engines and non-humans. -->
