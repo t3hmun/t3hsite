@@ -1,13 +1,18 @@
-# Site settings
+# This title is used as the masthead on all pages.
 title: t3hsite
+
+# This description us used in the index page, RSS and in the meta for any page lacking its own description.
 description: "This is project to make a reliable, maintainable and most importantly user-friendly theme for Jekyll from scratch, while learning good HTML5 and SASS/CSS."
-baseurl: "/t3hsite" # the subpath of your site, e.g. /blog/
-url: "http://t3hmun.github.io" # the base hostname & protocol for your site
+
+# The baseurl is used to create a full qualified url.
+# Relative URLs are not used.
+# For testing use `jekyll serve --baseurl=""` to eliminate the url.
+baseurl: "http://t3hmun.github.io/t3hsite"
 
 # Build settings
 markdown: kramdown
 kramdown:
-  input: GFM
+  input: GFM # GithHub Flavored Markdown, support for Github style fenced code blocks.
   syntax_highlighter: rouge
-  hard_wrap: false
-  header_offset: 1
+  hard_wrap: false # Single line breaks are ignored as in standard Markdown.
+  header_offset: 1 # <h#> tags are offset down by one size.
