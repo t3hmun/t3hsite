@@ -63,6 +63,7 @@ body {
     background: $background-colour;
     color: $text-colour;
     font-size: $base;
+
     // Auto margin to centre the body.
     // This means padding will have to be added manually to maintain a gutter.
     margin: auto;
@@ -83,8 +84,6 @@ p {
     // Also allows text to squish to smaller screens.
     max-width: $reading-width;
 
-
-
     // Block display with auto margins centres the block in the screen.
     // Vertical margins to space elements.
     // Add padding to maintain a gutter.
@@ -95,10 +94,13 @@ p {
     code {
         // Separate colour to differentiate it from the normal text.
         color: $subtle-fore-colour;
+
         // `inline-block` helps prevent line breaks unless absolutely necessary (line breaks can obfuscate spaces).
         // Line breaks will only occur if the line is too long to fit inside the page-width.
         display: inline-block;
-        // No border or background, that would break the flow of reading; this is in-line code, meant to be read as part of a sentence. 
+
+        // No border or background, that would break the flow of reading; this is in-line code, meant to be read as part of a sentence.
+   
     }
 }
 
@@ -117,7 +119,6 @@ ol, ul, blockquote, dl {
     // These elements have an unusual width, so they require some kind of box to demarcate the space they are mean to consume.
     background-color: $subtle-back-colour;
 
-
     // Reset p to fill the containing element instead of constricting itself to $reading-width.
     p {
         max-width: none;
@@ -129,6 +130,7 @@ ol, ul, blockquote, dl {
 blockquote {
     // A chunky line on the left side to denote blockquotes.
     border-left: solid $blockquote-side-line $medium-colour;
+
     // The border increases the width, so it must be shrunk by that much.
     max-width: $other-text-width - $blockquote-side-line;
 
@@ -145,7 +147,7 @@ ul, ol {
     margin: $vspace auto;
     padding: 0 $gutter 0 $bullet-padding;
 
-    // Make adjustments for the $gutter that other elements have and $bullet-padded that lists have. 
+    // Make adjustments for the $gutter that other elements have and $bullet-padded that lists have.
     max-width: $other-text-width - $bullet-padding + $gutter;
 
     ul, ol {
@@ -173,7 +175,7 @@ ul {
     ol {
         // Ordered sublists use letters.
         list-style: lower-latin inside;
-    
+
         ol {
             // Ordered sub-sublists use roman-numerals.
             list-style: lower-roman inside;
@@ -198,7 +200,7 @@ ol {
     ul {
         // New kind of bullet for level 2.
         list-style: circle inside none;
-        
+
         ul {
             // New kind of bullet for level 3.
             list-style: square inside none;
@@ -216,25 +218,59 @@ pre {
     padding: 0 $gutter;
 }
 
-h1 { font-size: $h1size; }
-h2 { font-size: $h2size; }
-h3 { font-size: $h3size; }
-h4 { font-size: $h4size; }
-h5 { font-size: $h5size; }
-h6 { font-size: $h6size; }
+h1 {
+    font-size: $h1size;
+}
 
-h1 { color: $h1colour; }
-h2 { color: $h2colour; }
-h3 { color: $h3colour; }
-h4 { color: $h4colour; }
-h5 { color: $h5colour; }
-h6 { color: $h6colour; }
+h2 {
+    font-size: $h2size;
+}
+
+h3 {
+    font-size: $h3size;
+}
+
+h4 {
+    font-size: $h4size;
+}
+
+h5 {
+    font-size: $h5size;
+}
+
+h6 {
+    font-size: $h6size;
+}
+
+h1 {
+    color: $h1colour;
+}
+
+h2 {
+    color: $h2colour;
+}
+
+h3 {
+    color: $h3colour;
+}
+
+h4 {
+    color: $h4colour;
+}
+
+h5 {
+    color: $h5colour;
+}
+
+h6 {
+    color: $h6colour;
+}
 
 // Header 1 is the site mast-head.
 // Gets special size and centring and font-type.
 h1 {
     text-align: center;
-    font-family: monospace;    
+    font-family: monospace;
 
     // Block display with auto margins centres the block in the screen.
     display: block;
@@ -255,6 +291,7 @@ h1, h2 {
         // H1 and H2 do not need special link colours due to their unique roles.
         // H2 is always a link to itself (article).
         // H1 is always a link to the home.
+   
     }
 
     // The hover makes it obvious that it is a link when the user is exploring the page.
@@ -273,7 +310,7 @@ h2 {
 
     // The border must be removed from the line-height in order to maintain a consistent vertical rhythm.
     // H2 uses double line-height due to its large size.
-    line-height: ($line-height * 2) - $header-underline;
+    line-height: $line-height * 2 - $header-underline;
 
     // Zero size margins so the underline stretches across the content area.
     // Zero bottom margin so that a meta-sub-title can hug the bottom (post date, tags etc.).
@@ -334,19 +371,23 @@ img {
 
 // Top level site <footer>.
 .site-footer {
-    text-align: center; // Centre text.
+    text-align: center;
+
+    // Centre text.
     // Width needs to match content area due to dividing border line.
     max-width: $content-width;
 
     //Extra margin to space footer away from content.
     display: block;
     margin: $vspace auto;
+
     // Vertical padding to space text away from border line.
     // Horizontal padding for gutter.
     padding: $vspace $gutter;
 
     // Smaller font size for non-main-content information.
     font-size: $small-font-size;
+
     // A line to separate the footer from the main body.
     border-top: solid $site-footer-top-border $highlight-colour;
 }
@@ -356,6 +397,7 @@ img {
     // Small italic text, this is extra info that can be ignored.
     font-style: italic;
     font-size: $small-font-size;
+
     // Restrict to content width, lines up with heading.
     max-width: $content-width;
 
@@ -389,20 +431,20 @@ img {
 }
 
 // The following three divs are for resizing element to fit different widths.
-// They can be inserted into Markdown using `{: .other-text-width }` to add the appropriate div to the most recent block. 
-.reading-width { 
+// They can be inserted into Markdown using `{: .other-text-width }` to add the appropriate div to the most recent block.
+.reading-width {
     max-width: $reading-width;
     margin: $vspace auto;
     padding: 0 $gutter;
 }
 
-.content-width { 
+.content-width {
     max-width: $reading-width;
     margin: $vspace auto;
     padding: 0 $gutter;
 }
 
-.other-text-width { 
+.other-text-width {
     max-width: $other-text-width;
     margin: $vspace auto;
     padding: 0 $gutter;
