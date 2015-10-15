@@ -87,7 +87,7 @@ This will generate a main.css, importing the specified scss files in order into 
 Add the stylesheet next to the metadata in `_includes/head.html` to apply it to the website:
 
 ```html
-{% raw %}<link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">{% endraw %}
+{% raw %}<link rel="stylesheet" href="{{ site.baseurl }}/css/main.css">{% endraw %}
 ```
 
 Run `jekyll serve` in the project folder using the command line, then view it from `localhost:4000` in a browser.
@@ -159,5 +159,5 @@ Prevents the proliferation of odd and mismatched features.
 
 Now this is a truly minimal Jekyll theme with syntax highlighting.
 
-The next part will be about apply formatting that _I believe_ is most suitable for a blog.
-Even if you disagree with it, it should be instructive. 
+The [next part]({{ site.baseurl }}/2015/part-05-guide-to-the-complete-theme) will be about appling formatting that _I believe_ is most suitable for a blog.
+Even if you disagree with it, it should be interesting. 

@@ -16,7 +16,8 @@ This description is part of the top level of the site (H1 rank).
   <h2>Recent Posts</h2>
   <!-- 
   Use Liquid to iterate through the 10 most recent posts in the site.
-  The title date and description for each page is also extracted using Liquid. 
+  The code to extract the title and description of each post has been moved into an include.
+  This allows the same markup to be used on the archive page.
   -->
   {% for post in site.posts limit:10 %}
 
