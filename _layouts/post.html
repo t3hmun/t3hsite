@@ -14,7 +14,7 @@ This layout contains a single main article.
 	H1 cannot be used here because the sectioning would cause it to shrink to H2 level.
 	[1](http://www.w3.org/TR/2015/WD-html51-20151003/semantics.html#headings-and-sections) - October 2015
 	-->
-	<h2><a href="{{ page.url | prepend: site.baseurl | prepend: site.url }}">{{ page.title }}</a></h2>
+	<h2><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></h2>
   <footer>
     <span class="heading-footer">Posted on:
     <!-- The datetime attribute contains a machine readable date. -->

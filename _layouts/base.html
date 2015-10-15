@@ -23,13 +23,13 @@ Useful for translating, spell-checking, screen reading among other things.
     Header tag is not needed if the header is fully contained in a h# tag.
     It is conventional (and useful) for the masthead to link to the homepage.
     -->
-    <h1><a href="{{ site.url }}{{ site.baseurl }}/">{{ site.title }}</a></h1>
+    <h1><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
 
     <!-- The navigation for a personal blog is small. -->
     <nav>
       <div class="site-nav">
-        <a href="{{ site.url }}{{ site.baseurl }}/about/">about</a> -
-        <a href="{{ site.url }}{{ site.baseurl }}/archive/">archive</a>
+        <a href="{{ site.baseurl }}/about/">about</a> -
+        <a href="{{ site.baseurl }}/archive/">archive</a>
       </div>
     </nav>
 
@@ -50,7 +50,7 @@ Useful for translating, spell-checking, screen reading among other things.
     <footer>
       <div class="site-footer">
 
-        <a href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">RSS</a> 
+        <a href="{{ site.baseurl }}/feed.xml">RSS</a> 
         -
         <a href="http://github.com/t3hmun">My Github</a> 
         -
