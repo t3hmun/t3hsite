@@ -44,3 +44,7 @@ I've considered trying other things or even writing my own tool-chain, but that 
 I'm not using GitHub's version of Jekyll.
 GitHub is still fine to host the site, but the generation has to be offline.
 GitHub compatibility limits the features available and ends up being tedious.
+
+## Next
+
+In the [next part]({{ site.baseurl }}/2015/part-02-tooling-up/) we begin by installing Ruby, Jekyll and related tools.
