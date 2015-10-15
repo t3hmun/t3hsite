@@ -41,7 +41,7 @@ All sizes and colours are defined in variables in a single file `/css/main.scss`
 This means that you do not have to search through reams of CSS to change a size or colour.
 Simply find the relevant entry in the main file and change the value once for everything.
 
-Switching to a dark theme requires changing 2 colours and using `rougify` to output a suitable syntax stylesheet (see [Part 4 #Syntax]({{ site.url }}{{ site.baseurl }}/2015/10/04/part-04 css-and-sass-foundation-from-scratch.html#syntax)).
+Switching to a dark theme requires changing 2 colours and using `rougify` to output a suitable syntax stylesheet (see [Part 4 #Syntax]({{ site.baseurl }}/2015/part-04 css-and-sass-foundation-from-scratch.html#syntax)).
 
 There are very few classes used for styling.
 I've tried to stick to the basic HTML tags for most things.
@@ -177,7 +177,7 @@ Ideally you don't want to be using that many sizes of headings, but if you do th
 There are a few steps to make this theme your own:
 
  * Clone or download this repository
- * Make sure you have Jekyll and rouge installed (see [Part 2: Tooling Up]({{ site.url }}{{ site.baseurl }}/2015/10/02/part-02-tooling-up.html))
+ * Make sure you have Jekyll and rouge installed (see [Part 2: Tooling Up]({{ site.baseurl }}/2015/part-02-tooling-up.html))
  * Customize `/_config.yml`
  * Delete or rewrite `/about/`
  * Title and Description in `/index.html`
